@@ -1,9 +1,9 @@
 
-
+//index.html
 getProductos()
 let pd=""
 function getProductos(){
-    fetch('/api/product')
+    fetch('../api/filter?category=1&max=6')
     .then((res)=>res.json())
     .then((data)=>{
      
