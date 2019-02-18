@@ -14,11 +14,4 @@ class UserController{
     $user->create();
   }
 
-  static function all(){
-    return array_map(function($user){
-        unset($user['pass']);
-        return $user;
-      },Usuarios::all());
-  }
-
 }

@@ -3,8 +3,7 @@
 use controller\AuthController;
 
 $RestApi->post("/api/login",function ($credentials){
-   $role = AuthController::authenticate($credentials->username,$credentials->password);
-   return array("username" => $credentials->username, "role" => $role);
+   return AuthController::authenticate($credentials->username,$credentials->password);
 });
 
 $RestApi->get("/api/valid",function (){

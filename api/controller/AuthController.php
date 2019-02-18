@@ -8,7 +8,7 @@ use Exception;
 class AuthController{
     
   static function validateAdmin(){
-    if(isset($_SESSION['user']) && $_SESSION['user'] == 1){
+    if(isset($_SESSION['user']) && $_SESSION['user'] === 1){
       return $_SESSION['user'];
     }
     header("HTTP/1.1 401 UNAUTHORIZED");

@@ -16,10 +16,6 @@ class ProductController{
         return Producto::byId($id);
     }
     
-    public static function filter($category,$max){   
-        return Producto::where(" tipo = $category LIMIT $max");
-    }
-
     public static function delete($id){   
         $prod =  Producto::byId($id);
         $prod->delete();

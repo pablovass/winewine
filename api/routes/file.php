@@ -11,9 +11,3 @@ $RestApi->get("/api/file/?",function ($name){
   FileController::read($name);
   return "???";
 });
-
-
-
-$RestApi->get("/api/test1",function ($name){
-  return "Hola pablo";
-});
