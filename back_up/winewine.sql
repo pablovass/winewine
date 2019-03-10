@@ -1,11 +1,7 @@
--- phpMyAdmin SQL Dump
--- version 4.8.4
--- https://www.phpmyadmin.net/
---
--- Servidor: 127.0.0.1
--- Tiempo de generación: 18-02-2019 a las 02:04:58
--- Versión del servidor: 10.1.37-MariaDB
--- Versión de PHP: 7.3.0
+CREATE DATABASE test23;
+GRANT USAGE ON *.* TO user23@localhost IDENTIFIED BY 'pass23';
+GRANT ALL PRIVILEGES ON test23.* TO user23@localhost ;
+USE test23;
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
