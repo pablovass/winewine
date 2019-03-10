@@ -13,15 +13,15 @@ function get_head(){
     
     const link=document.createElement("link")
     link.rel= "stylesheet";
-    link.href="../css/footer.css"
+    link.href="./css/footer.css"
     
     const link1=document.createElement("link")
     link1.rel= "stylesheet";
-    link1.href="../css/bootstrap.min.css"
+    link1.href="./css/bootstrap.min.css"
     
     const link2=document.createElement("link")
     link2.rel= "stylesheet";
-    link2.href="../css/bootstrap.css"
+    link2.href="./css/bootstrap.css"
 
     const script=document.createElement("script")
     script.src= "https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js";
