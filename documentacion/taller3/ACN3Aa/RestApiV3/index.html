@@ -1,0 +1,161 @@
+<!-- En este ejemplo se va a buscar una lista de productos
+por REST haciendo get a /api/product  -->
+
+<!-- contiene los botones que determinan cuantos producto se ven por pagina -->
+<div >
+  Por pagina:
+  <button data-perpage="5">5</button>
+  <button data-perpage="10">10</button>
+  <button data-perpage="20">20</button>
+  <button data-perpage="50">50</button>
+</div>
+
+<!-- En este elemento se va a listar los productos -->
+<div id="productList">
+</div>
+
+<!-- Este elemento se encarga de la paginacion -->
+<div id="paginator">
+</div>
+
+<!-- link a la pagina de creación de productos -->
+<a href="producto.html">Producto nuevo</a>
+
+<!-- Es el template que se va a utilizar para rellenar la lista
+de productos -->
+<script id="productTemplate" type="text/template">
+<div class="prodContainer">
+  <span class="prodName"></span>
+  $<span class="prodPrice"></span>
+  <a class="edit">Editar</a>
+  <button class="delete">Borrar</button>
+</div>
+</script>
+
+<!-- Se agrega la libreria de llamada a servicios Rest -->
+<script src="js/RestApi.js"></script>
+
+<!-- El programa -->
+<script>
+"use strict"
+
+// contiene el template base como string
+const template = document.getElementById("productTemplate").innerHTML
+
+// Referecia al elemento que va a tener la lista de productos
+const productsElm = document.getElementById("productList")
+
+// Referencia al paginador
+const paginator = document.getElementById("paginator")
+
+// Variable que guarda la cantidad de productos por pagina
+let perPage = 5
+
+// Variable que guarda la pagina actual
+let page = 0
+
+// Funcion util para borrar los hijos de un elemento
+function emptyElement(element){
+  while(element.firstChild){
+    element.removeChild(element.firstChild)
+  }
+}
+
+//Funcion para borrar un producto de la base de datos por ID
+function deleteProductoFromBD(productId){
+  // la funcion se llama "del" por que "delete" es una palabra reservada en js
+  RestApi.del("/api/producto/"+productId)
+    .then(()=>{
+      drawTable()  //Redibuja la tabla
+      drawPaginator() // Redibuja el paginador
+    })
+    .catch((err)=>alert("Error al traer los productos " + err))
+}
+
+// Recibe un objeto producto y le aplica el template.
+//   Por ultimo lo agrega al html
+function addProduct(product){
+
+  const div = document.createElement("div")
+  div.innerHTML = template
+  // va a buscar por clase "prodName" al template y remplaza el contenido
+  div.querySelector(".prodName").innerText = product.nombre
+  div.querySelector(".prodPrice").innerText = product.precio
+
+  // Link a la pantalla de edicion
+  div.querySelector(".edit").setAttribute("href","producto.html?edit=" + product.id)
+  //Boton para borrar el producto
+  div.querySelector(".delete").addEventListener("click",()=>{
+    deleteProductoFromBD(product.id)
+  })
+
+  //lo agrega al final de la lista de productos
+  productsElm.appendChild(div)
+}
+
+//dibuja el paginador
+function drawPaginator(){
+  // Va a buscar la cantidad total de productos a la base
+  RestApi.get("/api/producto/cantidad")
+    .then((obj)=>{
+      const cantidad = obj.cantidad
+
+      // Calcula la cantidad total de paginas
+      const pages = Math.ceil( cantidad / perPage)
+
+      //Borra el paginador actual
+      emptyElement(paginator)
+
+      for (let i = 0; i < pages; i++) {
+        const buttonPage = i // creo una copia del valor de la variable
+        const button = document.createElement("button")
+        button.innerText = i + 1 //la pagina 0 se muestra como 1
+
+        // Manejo el evento de cambiar de pagina
+        button.addEventListener("click",()=>{
+          page = buttonPage
+          drawTable()
+        })
+        paginator.appendChild(button)
+      }
+    })
+}
+
+//funcion para redibujar la tabla
+function drawTable(){
+
+  // calcula el primer producto a mostrar
+  const first= perPage * page
+  //realiza la llamada REST y carga el HTML
+  RestApi.get("/api/producto",{max:perPage,first:first})
+    .then((products)=>{
+      //Borra la lista actual
+      emptyElement(productsElm)
+      // Vuelve a cargar la lista
+      products.forEach(addProduct)
+    })
+    .catch((err)=>alert("Error al traer los productos " + err))
+}
+
+// busco todos los elementos con la propiedad "data-perPage"
+const perPageButtons = document.querySelectorAll("[data-perPage]")
+
+perPageButtons.forEach((button)=>{
+  // obtengo el valor de la propiedad como entero
+  const perPageValue = parseInt(button.getAttribute("data-perPage"))
+
+  //Agrego el manejador de evento por cambio cantidad de productos por pagina
+  button.addEventListener("click",()=>{
+    perPage = perPageValue
+    page = 0
+    drawTable()
+    drawPaginator()
+  })
+})
+
+//dibuja el paginador por primera vez
+drawPaginator()
+//Dibuja la tabla por primera vez
+drawTable()
+
+</script>
