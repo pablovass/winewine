@@ -37,6 +37,8 @@ class ProductController{
         $p->update();
         return "OK";
     }
-    
+    public static function filter($category,$max){   
+        return Producto::where(" tipo = $category LIMIT $max");
+    }
     
 }

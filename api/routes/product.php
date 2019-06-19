@@ -26,3 +26,8 @@ $RestApi->delete("/api/product/?",function($id){
     AuthController::validateAdmin();
     return PrCnt::delete($id);
 });
+$RestApi->get("/api/filter",function($params){
+    $category = $params->getParam("category");
+    $max = $params->getParam("max",3);
+    return PrCnt::filter($category,$max);
+});

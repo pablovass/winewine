@@ -1,13 +1,14 @@
 
 //index.html
 getProductos()
+
 let pd=""
 function getProductos(){
-    fetch('../api/filter?category=1&max=6')
+    fetch("../api/filter?category=1&max=6")
     .then((res)=>res.json())
     .then((data)=>{
      
-        let productos=''
+        let productos= ' '
         //console.log(data) para ver 
       
         data.forEach(function(prod) {

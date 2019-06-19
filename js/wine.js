@@ -1,7 +1,7 @@
 //http://localhost/wine.html
 function getWine(){
    // fetch('/api/product')
-   fetch('../api/filter?category=1&max=5')
+   fetch('http://localhost/api/filter?category=1&max=5')
     .then((res)=>res.json())
     .then((data)=>{
      
