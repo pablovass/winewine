@@ -25,7 +25,7 @@ function getWine(){
                      </div>
                    
                      
-                     `;   
+                     `;  
             }
         });
          document.getElementById('product').innerHTML=product;
