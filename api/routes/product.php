@@ -7,12 +7,6 @@ $RestApi->get("/api/product/?",function($id){
     return PrCnt::byId($id);
 
 });
-$RestApi->get("/api/filter",function($params){
-    $category = $params->getParam("category");
-    $max = $params->getParam("max",3);
-    return PrCnt::filter($category,$max);
-});
-
 
 $RestApi->post("/api/product",function($data){
     AuthController::validateAdmin();
@@ -31,4 +25,9 @@ $RestApi->get("/api/product",function(){
 $RestApi->delete("/api/product/?",function($id){
     AuthController::validateAdmin();
     return PrCnt::delete($id);
+});
+$RestApi->get("/api/filter",function($params){
+    $category = $params->getParam("category");
+    $max = $params->getParam("max",3);
+    return PrCnt::filter($category,$max);
 });
