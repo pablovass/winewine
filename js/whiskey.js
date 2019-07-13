@@ -1,6 +1,6 @@
 
 function getWhiskey(){
-  fetch('/api/product')
+  fetch('http://localhost/api/filter?category=2&max=6')
   .then((res)=>res.json())
   .then((data)=>{
    
