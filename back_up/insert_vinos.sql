@@ -23,6 +23,13 @@ WHERE id=10
 INSERT INTO producto(id, nombre,descripcion,precio,cant_producto,tipo)
 values(11,'JAMESON IRISH WHISKEY 750 ML + JENGA','Jameson es un whiskey irlandes mezclado, producido por primera vez en 1780. Originalmente uno de los cuatro whiskeys mas importantes de Dublin,',750,40,2)
 ---JOHNNIE WALKER RED LABEL WHISKY 750 ML
+UPDATE producto
+SET descripcion='Jameson es un whiskey irlandes mezclado, producido por primera vez en 1780. Originalmente uno de los cuatro whiskeys mas importantes de Dublin',
+nombre='JOHNNIE WALKER RED LABEL WHISKY 750 ML',
+ precio=750,cant_producto=31
+ tipo=
+ WHERE id=11
+
 INSERT INTO producto(id, nombre,descripcion,precio,cant_producto,tipo)
 values(12,'JOHNNIE WALKER RED LABEL WHISKY 750 ML','Johnnie Walker​ es una marca de whisky escoces producida por Diageo en Kilmarnock, Escocia.',800,32,2)
 --JACK DANIELS WHISKY 750 ML
@@ -63,3 +70,5 @@ WHERE id=19
 select *from producto
 INSERT INTO producto(id, nombre,descripcion,precio,cant_producto,tipo)
 values(18,'AMSTEL PREMIUM CERVEZA LATA 473 ML','Amstel Premium Pilsener es una cerveza refinada, de color dorado intenso, facil de tomar, y con un rico tinte a lupulo que le otorga un sabor refrescante y balanceado con caracter',60,52,3)
+
+select * from producto
