@@ -1,14 +1,15 @@
 
 function getEspumantes(){
-    fetch('/api/product')
+   // fetch('/api/product')
+   fetch('../api/filter?category=2&max=5')
     .then((res)=>res.json())
     .then((data)=>{
      
         let product=''
-        //console.log(data) para ver 
+        console.log(data) //para ver 
       
         data.forEach(function(prod) {
-            if (prod.tipo==3) {
+            if (prod.tipo==2) {
              
                 product += `
                      
@@ -24,12 +25,12 @@ function getEspumantes(){
                      </div>
                    
                      
-                     `;   
+                     `;  
             }
         });
          document.getElementById('product').innerHTML=product;
         
        
     })
-  }
-  window.onload=getEspumantes
+}
+window.onload=getEspumantes()
