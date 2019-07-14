@@ -1,3 +1,30 @@
+var jamon =document.getElementById('wine')
+vino.addEventListener('click',function(){
+    alert('HOLA VINO')
+});
+
+
+
+
+document.getElementById('whiskey').addEventListener('click',whiskey);
+document.getElementById('cerveza').addEventListener('click',cerveza);
+
+
+/*
+switch(){
+    case 'vino':
+    alert('es vino')
+    break;
+
+    case 'whiskey':
+    alert('es whiskey')
+    break;
+
+    case 'cerveza':
+    alert('es cerveza')
+    break;
+}*/
+
 class Producto{
     constructor(id,nombre,descricion,precio,cantProducto,tipo){
         this.id=id;
