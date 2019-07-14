@@ -32,7 +32,7 @@ function get_nav(){
   const tagLi1 = document.createElement("li")
   tagLi1.className="active"
   const tagA1= document.createElement("a")
-  tagA1.href="index.html"
+ tagA1.href="index.html"
   tagA1.innerText="home"
   tagLi1.appendChild(tagA1)
   tagUl.appendChild(tagLi1)
@@ -40,8 +40,8 @@ function get_nav(){
   const tagLi2 = document.createElement("li")
   tagLi2.className="none"
   const tagA2= document.createElement("a")
-  tagA2.href="wine.html"
-  tagA2.innerText="Vinos"
+ tagA2.href="wine.html"
+  tagA2.innerText="vinos"
   tagA2.id="vinos"
   tagLi2.appendChild(tagA2)
   tagUl.appendChild(tagLi2)
@@ -50,7 +50,7 @@ function get_nav(){
   tagLi3.className="none"
   const tagA3= document.createElement("a")
   tagA3.href="whiskey.html"
-  tagA3.innerText="Whiskey"
+  tagA3.innerText="whiskey"
   tagA3.id="whiskey"
   tagLi3.appendChild(tagA3)
   tagUl.appendChild(tagLi3)
@@ -58,8 +58,9 @@ function get_nav(){
   const tagLi4 = document.createElement("li")
   tagLi4.className="none"
   const tagA4= document.createElement("a")
-  tagA4.href="espumantes.html"
-  tagA4.innerText="Espumantes"
+  tagA4.href="cerveza.html"
+  tagA4.innerText="cerveza"
+  tagA4.id="cerveza"
   tagLi4.appendChild(tagA4)
   tagUl.appendChild(tagLi4)
 

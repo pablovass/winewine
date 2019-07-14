@@ -1,12 +1,12 @@
 
 class Producto{
 
-    constructor(id,nombre,descricion,precio,cantProducto,tipo){
+    constructor(id,nombre,descripcion,precio,cant_producto,tipo){
         this.id=id;
         this.nombre=nombre;
-        this.descricion=descricion;
+        this.descripcion=descripcion;
         this.precio=precio;
-        this.cantProducto=cantProducto;
+        this.cant_producto=cant_producto;
         this.tipo=tipo;
     }
 
@@ -26,9 +26,9 @@ getPost()
      .then((data)=>{
        
          data.forEach(function(data) {
-            const product=new Producto(data.id,data.nombre,data.descripcion,data.precio,data.cantProducto,data.tipo)
+            const product=new Producto(data.id,data.nombre,data.descripcion,data.precio,data.cant_producto,data.tipo)
              
-            console.log(product.precio)
+            console.log(product.cant_producto)
             
          });
          
