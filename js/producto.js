@@ -1,35 +1,69 @@
-//window.addEventListener("load",function (){
-//Identificador es el tipo = 1 para vino ,2 para whiskey 3 para cerveza 
-document.getElementById('vino').addEventListener('click',getIdentificadorVino);
 
-var whi= document.getElementById('whiskey')
-whi.addEventListener('click',getIdentificadorWhiskey);
-
-var beer =document.getElementById('cerveza')
-beer.addEventListener('click',getIdentificadorCerveza);
-
-//la funcion tiene que devolver 
-
-function getIdentificadorVino(){
-    tipo=1
-return(tipo)  
+class Producto{
+    
+    
+    constructor(id,nombre,descripcion,precio,cant_producto,tipo){
+        this.id=id;
+        this.nombre=nombre;
+        this.descripcion=descripcion;
+        this.precio=precio;
+        this.cant_producto=cant_producto;
+        this.tipo=tipo;
+    }
+ 
 }
+//getter
+var botonCerveza=null
+var botonVino=null
+var botonWhiskey=null
 
-function getIdentificadorWhiskey(){
-    var tipo=2
-    return (console.log(tipo))
-}
-function getIdentificadorCerveza(){
-    var tipo=3
-    return (console.log(tipo))
-}
 
-RestApi.get("../api/filter?category=1&max=6")
-        .then((products)=>{
-            products.forEach((prod)=>{
-                console.log(prod)
-            })
+botonVino= document.getElementById('botonVino')
+
+botonVino.addEventListener('click',function(){
+  fetch('../api/filter?category=1&max=5')
+    .then(data =>data.json())
+    .then(data =>{
+         get=data
+
+         mostrarDatos(get)
         })
-        //tbody.appendChild(createRow(prod))
+    })
 
- //})
+botonWhiskey= document.getElementById('botonWhiskey')
+botonWhiskey.addEventListener('click',function(){
+    fetch('../api/filter?category=2&max=5')
+      .then(data =>data.json())
+      .then(data =>{
+           get=data
+  
+           mostrarDatos(get)
+          })
+      })
+  
+
+botonCerveza=document.getElementById('botonCerveza')
+botonCerveza.addEventListener('click',function(){
+    fetch('../api/filter?category=3&max=5')
+      .then(data =>data.json())
+      .then(data =>{
+           get=data
+  
+           mostrarDatos(get)
+          })
+      })
+  
+
+ function mostrarDatos(get){
+    get.map((get,i)=>{
+        let nombre= get.nombre
+        //let carasteristicas=get.descripcion
+
+        console.log(nombre)
+        //console.log(carasteristicas)
+
+    })
+}
+
+
+
