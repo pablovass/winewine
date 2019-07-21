@@ -1,0 +1,3 @@
+RewriteEngine On
+#Redirije todas las rutas que empiezan con api/ al archivo restApi.php
+RewriteRule ^api/ restApi.php
