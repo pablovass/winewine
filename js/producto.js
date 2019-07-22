@@ -55,14 +55,32 @@ botonCerveza.addEventListener('click',function(){
   
 
  function mostrarDatos(get){
-    get.map((get,i)=>{
-        let nombre= get.nombre
-        //let carasteristicas=get.descripcion
+    
+    get.forEach(function(prod) {
+         
+            product += `
+                 
+                 <div class="col-sm-6 col-md-4">
+                   <div class="thumbnail">
+                     <img src="/images/${prod.id}.jpg" alt="...">
+                     <div class="caption">
+                       <h3>${prod.nombre}</h3>
+                       <p><b>Oferta $${prod.precio}</b>  <span style="text-decoration: line-through;">Antes $${prod.precio}</span></p>
+                       <p><a style="margin-left: 67px;" href="producto_detalle.html?id=${prod.id}" class="btn btn-default" role="button">Comprar</a></p>
+                     </div>
+                   </div>
+                 </div>
+               
+                 
+                 `;  
+        
+    });
+    document.getElementById('product').innerHTML=product;
+    
 
-        console.log(nombre)
+      //  console.log(nombre)
         //console.log(carasteristicas)
-
-    })
+    
 }
 
 
