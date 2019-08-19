@@ -1,8 +1,11 @@
-/* retomando el proyecto la base de datos 10/3/2019 funciona */;
-CREATE DATABASE test23;
-GRANT USAGE ON *.* TO user23@localhost IDENTIFIED BY 'pass23';
-GRANT ALL PRIVILEGES ON test23.* TO user23@localhost ;
-USE test23;
+-- phpMyAdmin SQL Dump
+-- version 4.9.0.1
+-- https://www.phpmyadmin.net/
+--
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 19-08-2019 a las 23:38:49
+-- Versión del servidor: 10.4.6-MariaDB
+-- Versión de PHP: 7.1.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -18,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `test23`
 --
+CREATE DATABASE IF NOT EXISTS `test23` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `test23`;
 
 -- --------------------------------------------------------
 
@@ -45,7 +50,18 @@ INSERT INTO `producto` (`id`, `nombre`, `descripcion`, `precio`, `cant_producto`
 (4, 'MIGUEL ESCORIHUELA GASCON MALBEC', 'Aromas de frutos rojos y negros como ciruelas, grosellas silvestres y cassis provenientes del Malbec, combinados con vainilla, chocolate y cafe aportado durante su crianza en barricas. \nEn boca se presenta intenso, de buena estructura y concentracion. Asombrosamente suave y complejo, muy elegante y de persistente final.', 1550, 12, 1),
 (5, 'LOS INTOCABLES BLACK MALBEC', 'De color violaceo profundo, con matices negros. Sus uvas Malbec provenientes de una cuidadosa seleccion de parcelas, con muy bajo rendimiento de racimos por planta, logran un vino de muy agradable sabor y largo final. \nSu innovador proceso de elaboracion, que contempla una maduracion del vino de 12 meses en barricas de roble Bourbon, desprende aromas a humo, chocolate y caramelo. \nEn boca, el tostado medio, aporta sabores a vainilla y a mermelada de frutos rojos cocidos, como las moras y las ciruelas.', 391, 52, 1),
 (6, 'LAS PERDICES ALA COLORADA ANCELLOTTA 2013', 'Las Perdices Ala Colorada Ancellotta 2013 tuvo una crianza en madera de 15 meses en barricas\n nuevas de roble: 50% roble frances y 50% roble americano. Un vino de color rojo profundo, con tonos azulados. Intensos aromas de frutas rojas, mermeladas e higos \nsecos conjugados con notas de tabaco y chocolate. En boca, buen ataque, voluminoso, estructura bien balanceada con taninos maduros, \ndonde se combinan las notas de fruta, con los aportes de la madera. Excelente companero para carnes rojas y platos contundentes en general.', 550, 12, 1),
-(7, 'DONA PAULA SELECCION DE BODEGA MALBEC', 'Color violeta intenso y profundo, aromas a frutos del bosque, notas de grafito, cereza negra, moka y especias. \nEs probablemente hasta ahora la mejor y mas estructurada version de nuestro icono Malbec, manteniendo intacta su elegancia, fineza y multiples expresiones', 850, 12, 1);
+(7, 'DONA PAULA SELECCION DE BODEGA MALBEC', 'Color violeta intenso y profundo, aromas a frutos del bosque, notas de grafito, cereza negra, moka y especias. \nEs probablemente hasta ahora la mejor y mas estructurada version de nuestro icono Malbec, manteniendo intacta su elegancia, fineza y multiples expresiones', 850, 12, 1),
+(8, 'THE FAMOUS GROUSE WHISKY 750 ML', 'raduccion del ingles-The Famous Grouse es una marca de whisky escoces mezclado, producida por primera vez por Matthew Gloag & Son en 1896, y actualmente producida y propiedad de The Edrington Group. Los whiskies de malta usados ??en la mezcla de The Famous Grouse incluyen el Highland Park y The Macallan, propiedad de Edringto', 717, 32, 2),
+(9, 'CUTTY SARK WHISKY 700 ML', 'una gama de whisky escoces mezclado producido por Edrington plc de Glasgow, cuya oficina principal esta a menos de diez millas del lugar de nacimiento del famoso barco clipper del mismo nombre. El whisky se creo el 23 de marzo de 1923 ', 617, 32, 2),
+(10, 'THE KING OF SCOTS WHISKY 700 ML', 'Fred Laing, la segunda generacion de la empresa familiar y el maestro mezclador de la compania, selecciona barricas a mano para el King of Scots y las casa para crear esto, la joya de la corona del Blended Scotch Whisky.', 650, 40, 2),
+(11, 'JAMESON IRISH WHISKEY 750 ML + JENGA', 'Jameson es un whiskey irlandes mezclado, producido por primera vez en 1780. Originalmente uno de los cuatro whiskeys mas importantes de Dublin', 750, 40, 2),
+(12, 'JOHNNIE WALKER RED LABEL WHISKY 750 ML', 'Johnnie Walker? es una marca de whisky escoces producida por Diageo en Kilmarnock, Escocia.', 800, 32, 2),
+(13, 'JACK DANIELS WHISKY 750 ML', 'es una destileria y marca de whiskey estadounidense de Tennessee. La diferencia mas notable es que el whisky Tennessee es filtrado en carbon de arce sacarino, dandole un sabor y aroma distintivos. Conocida por sus botellas cuadradas y su etiqueta de color negro, la compania fue establecida en Lynchburg, Tennessee y adquirida por la compania Brown-Forman en 1957.', 1500, 32, 2),
+(14, 'BLUE MOON BELGIAN WHITE ALE CERVEZA 330 ML', 'Blue Moon Belgian White, es una cerveza estilo witbier belga lanzada al mercado en 1995. Es fabricada por la compania Blue Moon Brewing Co. en Golden, Colorado, parte de la compania cervecera Tenth and Blake, la division de importacion y embarcaciones de MillerCoors con base en Chicago.', 120, 52, 3),
+(15, 'ESTRELLA DAMM CERVEZA LATA 500 ML', 'Estrella Damm es una cerveza tipo lager elaborada con malta de cebada, arroz y lupulo, siguiendo la receta original desde su fundacion, en 1876. Cuenta con un grado de alcohol de 5,4% ', 110, 52, 3),
+(16, 'DAB CERVEZA LATA 500 ML', 'Una cerveza de calidad superior, la DAB es una opcion facil de tomar. De color dorado, en boca presenta notas a lupulo y malta.', 115, 52, 3),
+(19, 'KAPUZINER WEISSBIER CERVEZA LATA 500 ML', 'Esta cerveza alemana es una tipica Hefeweizen que, por supuesto, responde a la ley de pureza de 1516. Super refrescante, es de un color entre dorado y anaranjado, con mucha turbidez, tipico de este estilo cervecero. Tanto en nariz como en boca, los tonos citricos se destacan por sobre el resto, en donde se pueden encontrar levadura y especias.', 130, 52, 3),
+(20, 'AMSTEL PREMIUM CERVEZA LATA 473 ML', 'Amstel Premium Pilsener es una cerveza refinada, de color dorado intenso, facil de tomar, y con un rico tinte a lupulo que le otorga un sabor refrescante y balanceado con caracter', 60, 52, 3);
 
 -- --------------------------------------------------------
 
@@ -101,7 +117,7 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
