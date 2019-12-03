@@ -129,7 +129,7 @@ function mostrarHome(){
     <!--fin  las primeras 6 bebidas -->
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
     <div class="btn-group" role="group">
-      <button type="button" class="btn btn-default">ver mas </button>
+      <button type="button" class="btn btn-default" onclick="window.location.href='http://localhost/src/pages/producto/producto.html'">ver mas </button>
     </div>
       </div>
   <!-- Container (The Band Section) -->
@@ -197,7 +197,7 @@ function mostrarHome(){
          </div>
        <div class="btn-group btn-group-justified" role="group" aria-label="...">
     <div class="btn-group" role="group">
-      <button type="button" class="btn btn-default">ver mas </button>
+    <button type="button" class="btn btn-default" onclick="window.location.href='http://localhost/src/pages/producto/producto.html'">ver mas </button>
     </div>
       </div>
       </div>
@@ -283,7 +283,7 @@ function mostrarHome(){
        </div>
        <div class="btn-group btn-group-justified" role="group" aria-label="...">
     <div class="btn-group" role="group">
-      <button type="button" class="btn btn-default">ver mas </button>
+    <button type="button" class="btn btn-default" onclick="window.location.href='http://localhost/src/pages/producto/producto.html'">ver mas </button>
     </div>
       </div>
     </div>
