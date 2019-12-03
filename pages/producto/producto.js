@@ -46,29 +46,24 @@ function getManyproduct(tipo,max){
           .then((res)=>res.json())
           .then((data)=>{
      
-            var losOtros=''
+            var productos=''
             //console.log(data) para ver 
           
             data.forEach(function(prod) {
-                    losOtros += `
-                                <div class="col-md-4 col-sm-6 col-xs-12">
-                                <div class="blog-post wow fadeInUp" data-wow-delay="0.2s">
-                                <div class="post-img">
-                                <a href="http://localhost/producto_detalle.html?id=${prod.id}"> <img class="img-responsive" src="/images/${prod.id}.jpg" alt="image"></a>
-                                </div>    
-                                <div class="blog-details">
-                                <h4 class="media-heading">${prod.nombre}</h4>
-                                <p>${prod.carasteristica}.</p>
-                                <ul class="list-inline text-capitalize">
-                                <li><b>Oferta $${prod.precio}</b></li>
-                                <li class="pull-right"><span style="text-decoration: line-through;">Antes $${prod.precio}</span></li>
-                            </ul>
-                        </div>
-                    </div>    
-                </div>   
+                    productos += `
+                    <div class="col-sm-4">
+                    <div class="thumbnail">
+                    <a href="http://localhost/producto_detalle.html?id=${prod.id}"><img src="/images/${prod.id}.jpg" alt="${prod.nombre}" width="400" height="300"></a>
+                      <p><strong>${prod.nombre}</strong></p>
+                      <p><strong>$ ${prod.precio}</strong></p>
+                      <p>${prod.carasteristica}</p>
+                      <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+                    </div>
+                  </div>
+
                 `;
             });
-            document.getElementById('contenido2').innerHTML=losOtros;
+            document.getElementById('bebidass').innerHTML=productos;
                   
         })
         //  .catch((err)=>console.error(err))
@@ -77,34 +72,37 @@ function getManyproduct(tipo,max){
 /************************************************************************************/
 
 
-//function mostrarDatos(msg){
-//    
-//    msg.forEach(function(prod) {
-//         
-//            product += `
-//                 
-//                 <div class="col-sm-6 col-md-4">
-//                   <div class="thumbnail">
-//                     <img src="/images/${id}.jpg" alt="...">
-//                     <div class="caption">
-//                       <h3>${nombre}</h3>
-//                       <p><b>Oferta $${precio}</b>  <span style="text-decoration: line-through;">Antes $${precio}</span></p>
-//                       <p><a style="margin-left: 67px;" href="producto_detalle.html?id=${id}" class="btn btn-default" role="button">Comprar</a></p>
-//                     </div>
-//                   </div>
-//                 </div>
-//               
-//                 
-//                 `;  
-//        
-//    });
-//    document.getElementById('product').innerHTML=product;
-//    
-//
-//      //  console.log(nombre)
-//        //console.log(carasteristicas)
-//    
-//}
+function htmlIntro(){
+    var introHtml;
+
+    introHtml += `
+            <div id="listasBebidas" class="bg-1">
+            <div class="container">
+              <h3 class="text-center">whiskey</h3>
+              <p class="text-center">la seleccion de la <b> semanab</b></p>
+              <div class="row text-center" id="bebidass">
+        
+                
+                
+              </div>
+            <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default">ver mas </button>
+            </div>
+              </div>
+              </div>
+              </div>
+               
+                 
+                 `;  
+      
+    document.getElementById('lista').innerHTML=introHtml;
+    
+
+      //  console.log(nombre)
+        //console.log(carasteristicas)
+    
+}
 
 /************************************************************************************/
 
