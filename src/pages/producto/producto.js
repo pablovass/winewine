@@ -51,8 +51,34 @@ class Producto{
     get tipo(){
         return this.tipo;
     }
-    
+
     //crud
+    //get
+    mostrarDetalleProducto(){
+        fetch(`../api/filter?category=${tipo}&max=${cant_producto}`)
+        .then(data =>data.json())
+        .then(data =>{
+             get=data
+    
+             mostrarDatos(get)
+            })
+        console.log("se muestra la lista de los productos del inventario");
+    
+        console.log("se muestra un detalle del producto seleccionado");
+    }
+    //get
+    mostrarListaProcto(tipo,cant_producto){
+
+        fetch(`../api/filter?category=${tipo}&max=${cant_producto}`)
+        .then(data =>data.json())
+        .then(data =>{
+             get=data
+    
+             mostrarDatos(get)
+            })
+        console.log("se muestra la lista de los productos del inventario");
+    }
+
     //post
     cargaDeproducto(){
         console.log("se suma un nuevo producto al inventario");
@@ -65,14 +91,8 @@ class Producto{
     ModificarProducto(){
         console.log("se modifica el producto al inventario");
     }
-    //get
-    mostrarListaProcto(){
-        console.log("se muestra la lista de los productos del inventario");
-    }
-    //get
-    mostrarDetalleProducto(){
-        console.log("se muestra un detalle del producto seleccionado");
-    }
+    
+    
 
 }
     class Vino extends Producto{

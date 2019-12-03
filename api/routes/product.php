@@ -31,3 +31,9 @@ $RestApi->get("/api/filter",function($params){
     $max = $params->getParam("max",3);
     return PrCnt::filter($category,$max);
 });
+
+$RestApi->get("/api/filter2",function($params){
+    $id = $params->getParam("id");
+    $tipo = $params->getParam("tipo");
+    return PrCnt::filter2($id,$tipo);
+});

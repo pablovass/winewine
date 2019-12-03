@@ -40,5 +40,10 @@ class ProductController{
     public static function filter($category,$max){   
         return Producto::where(" tipo = $category LIMIT $max");
     }
+    //http://localhost/api/filter2?tipo=1&id=2
+   static function filter2($id,$tipo){
+       return Producto::where("id = '$id' and tipo = '$tipo'");
+   
+     }
     
 }

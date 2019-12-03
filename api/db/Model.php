@@ -136,7 +136,10 @@ abstract class Model{
         . $where);
     return $result;
   }
-    
+   
+
+
+  
  static function first($where){
     $result =
       DbController::getOneResult(
