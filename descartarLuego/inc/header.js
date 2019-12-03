@@ -29,6 +29,8 @@ function get_nav(){
   tagUl.className="nav navbar-nav"
   tagDiv.appendChild(tagUl)
 
+  
+
   const tagLi1 = document.createElement("li")
   tagLi1.className="active"
   const tagA1= document.createElement("a")

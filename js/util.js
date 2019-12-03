@@ -46,8 +46,15 @@ function _$(tagName,props){
   return $_elm(child)
 }
 
-// borra por id del html
+
+
+ //borra por id del html
 function deleteIdHtml(id){
-let elID=id
-  elID.parentNode.removeChild(id)
+  let elID=id
+    elID.parentNode.removeChild(id)
+  }
+function reappearHtml(){
+ // document.getElementById("principal").style.display='initial';
+  //document.getElementById("lista").style.display='none';
+ 
 }
