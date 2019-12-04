@@ -1,52 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <!-- Theme Made By www.w3schools.com - No Copyright -->
-  <title>Bootstrap Theme The Band</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  
-  <link rel="stylesheet" href="/css/style.css">
-  <link rel="stylesheet" href="/css/styles.css">
+<head id="getHead">
+  <script src="../inc/head.js"></script>
 </head>
 <body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
 
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#home">Wine Wine</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li id="home"><a href="#home">HOME</a></li>
-        <li id="vino"><a href="#vinos">VINOS</a></li>
-        <li id="whiskey" ><a href="#whiskey" >WHISKEY</a></li>
-        <li id="cervesas"><a href="#cervezas">CERVEZA</a></li>
-        <li id="contacto"><a href="#contact">CONTACTO</a></li>
-        <li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">LOGIN
-          <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Registrase</a></li>
-            <li><a href="#">Iniciar Session</a></li>
-            <li><a href="#">Cerrar Session</a></li> 
-          </ul>
-        </li>
-        <li><a href="#"><span class="glyphicon glyphicon-search"></span></a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<header id="getHeader">
+    <script src="../inc/header.js"></script>
+</header>
 
 <div id="lista"> </div>
 
@@ -65,7 +26,7 @@
     <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
         
-          <!-- Modal content-->
+          <!-- Modal content de no usarlo borrarlo al final -->
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">×</button>
@@ -97,121 +58,36 @@
       </div>
     
     
-  <!-- por defecto cuand se inicie la pagina que aparesca el home -->
-  
+ 
   
   <!--inicio de contacto-->
   <div id="contact"></div>
   <!-- fin de contacto -->
   
 </div>
-  <!-- Image of location/map 
-  <img src="map.jpg" class="img-responsive" style="width:100%">
-  -->
   <!-- Footer -->
-  <footer class="text-center">
-    <a class="up-arrow" href="#home" data-toggle="tooltip" title="TO TOP">
-      <span class="glyphicon glyphicon-chevron-up"></span>
-    </a><br><br>
-    <p>desarrollado por Pablo Vallejos <a href="https:pablovallejos.com" data-toggle="tooltip" title="visita a pablo vallejos">pablovallejos.com</a></p> 
-    
+  <footer id="getFooter" class="text-center">
+    <script src="../inc/footer.js"></script>
   </footer>
   </div>
   <!--final del home-->  
  
-  <script src="/js/RestApi.js"></script>
-  <script src="/js/bootstrap.min.js"></script>
-  <script src="/js/animacion.js"></script>
-  
-  <script src="/pages/producto/producto.js"></script>
-  <script src="/js/util.js"></script>
-  <script src="/pages/contacto/contacto.js"></script>
-  <script src="/pages/home/home.js"></script>
-  <script>
-      //id= "principal"
-  
-      var list = document.getElementById("principal");
-        
-      function ocultar(){
-        list.parentNode.removeChild(list);
-  }
-   // ocultar()
-    </script>
+
+
+
+
+<script src="../js/RestApi.js"></script>
+<script src="/pages/producto/producto.js"></script>
+<script src="/js/util.js"></script>
+<script src="/pages/contacto/contacto.js"></script>
+<script src="/pages/home/home.js"></script>
 <script>
-$(document).ready(function(){
-  // Initialize Tooltip
-  $('[data-toggle="tooltip"]').tooltip(); 
-  
-  // Add smooth scrolling to all links in navbar + footer link
-  $(".navbar a, footer a[href='#home']").on('click', function(event) {
-
-    // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "home") {
-
-      // Prevent default anchor click behavior
-      event.preventDefault();
-
-      // Store hash
-      var hash = this.hash;
-
-      // Using jQuery's animate() method to add smooth page scroll
-      // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: $(hash).offset().top
-      }, 900, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-      });
-    } // End if
-  });
-})
-</script>
-
-<script>
-  getCarrusel()
-  mostrarListaUno()
-  mostrarListaDos()
-  mostrarListaTres()
-  //$("#getVinos").on("click",()=>{
-  // deleteIdHtml(principal)
-  // htmlIntro()
-  // getOneProduct(x,y)
-  // getManyproduct(1,2)
-  // })
-//los botones del nav
-$("#getVinos").on("click",()=>{
-  
-    deleteIdHtml(principal)
-    var mostra=headerProduct();
-    var x=1
-    var y=6
-   // getOneProduct(x,y)
-    getManyproduct(x,y)
-    })
-   $("#home").on("click",()=>{
-    reappearHtml()
-
-  })
-  $("#vino").on("click",()=>{
-    reappearHtml()
-  })
-  $("#whiskey").on("click",()=>{
-    reappearHtml()
-  })
-  $("#cervesas").on("click",()=>{
-    reappearHtml()
-  })
-  $("#contacto").on("click",()=>{
-    reappearHtml()
-  })
- 
-  getContacto()
-
-    
-   
-   </script>
-  
+    getCarrusel()
+    mostrarListaUno()
+    mostrarListaDos()
+    mostrarListaTres()
+    getContacto()
+  </script>
 
 </body>
 </html>

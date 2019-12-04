@@ -152,7 +152,7 @@ function getListTwo(tipo,max){
                     
                 <div class="col-sm-4">
                 <div class="thumbnail">
-                <a href="http://localhost/producto_detalle.html?id=${prod.id}"><img src="images/${prod.id}.jpg" alt="${prod.nombre}" /></a>
+                <a href=index?id=${prod.id}"><img src="images/${prod.id}.jpg" alt="${prod.nombre}" /></a>
                   <p><strong>${prod.nombre}</strong></p>
                   <p>${prod.precio}</p>
                   <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
@@ -164,6 +164,7 @@ function getListTwo(tipo,max){
             document.getElementById('listagetListTwo').innerHTML=productos;
                   
         })
+        
      }
 
      function mostrarListaDos(){
@@ -205,8 +206,6 @@ function getListThree(tipo,max){
     let category=tipo
     let cant=max 
     
-    //RestApi.get(`/api/filter?category=${category}&max=${cant}`)
-          //.then((msg)=> console.log(msg))
      fetch(`/api/filter?category=${category}&max=${cant}`)   
           .then((res)=>res.json())
           .then((data)=>{
