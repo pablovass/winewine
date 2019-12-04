@@ -66,7 +66,7 @@ function headerlistOne(){
    
    <div class="btn-group btn-group-justified" role="group" aria-label="...">
      <div class="btn-group" role="group">
-         <button type="button" class="btn btn-default" id="getVinos">ver mas </button>
+         <button type="button" class="btn btn-default" onclick="window.location.href = 'pages/productoLista/productoLista.html';">ver mas </button>
      </div>
    </div>
 </div>`;  

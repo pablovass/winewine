@@ -49,10 +49,9 @@ function getManyproduct(tipo,max){
             document.getElementById('bebidass').innerHTML=productos;
                   
         })
-        //  .catch((err)=>console.error(err))
+     
 }
 
-/************************************************************************************/
 
 
 function headerProduct(){
@@ -80,9 +79,4 @@ function headerProduct(){
                  `;  
       
     document.getElementById('lista').innerHTML=introHtml;
-    
-
-      //  console.log(nombre)
-        //console.log(carasteristicas)
-    
 }
