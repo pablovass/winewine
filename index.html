@@ -379,6 +379,7 @@
   
   
   <!--inicio de contacto-->
+  <div id="contact"></div>
   <!-- fin de contacto -->
   
 </div>
@@ -399,8 +400,9 @@
   <script src="/js/RestApi.js"></script>
   <script src="/js/bootstrap.min.js"></script>
   
-  <script src="/pages/producto/producto.js"></script> 
+  <script src="/pages/producto/producto.js"></script>
   <script src="/js/util.js"></script>
+  <script src="/pages/contacto/contacto.js"></script>
   <script>
       //id= "principal"
   
@@ -452,8 +454,8 @@ $(document).ready(function(){
 //los botones del nav
 $("#getVinos").on("click",()=>{
     deleteIdHtml(principal)
+    var mostra=htmlIntro();
     
-    htmlIntro()
     
     var x=1
     var y=6
@@ -477,7 +479,7 @@ $("#getVinos").on("click",()=>{
     reappearHtml()
   })
  
-
+  getContacto()
 
     
    
