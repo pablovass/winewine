@@ -49,6 +49,32 @@ function getCarrusel(){
 }
 
 
+function headerlistOne(){
+    var headerlist=``;
+
+    headerlist += `
+    <div id="vinos" class="container text-center">
+    <h3>WINE WINE</h3>
+     <p><em>POR QUE NOS ENCANTA EL VINO </em></p>
+      <p>
+      Porque nos encanta las mejores bebidas es que vendemos lo mejor y no conforme con eso y porque no interesa tus 
+      gustos organizamos degustaciones para conocerte y saber que bebidas son las que te acompañan en una reunion, con la familia o un asado con amigos
+      </p>
+      <br>
+      <div id="getListOne" class="row"></div>
+       <!--aca dentro va los productos --->     
+   
+   <div class="btn-group btn-group-justified" role="group" aria-label="...">
+     <div class="btn-group" role="group">
+         <button type="button" class="btn btn-default" id="getVinos">ver mas </button>
+     </div>
+   </div>
+</div>`;  
+      
+    document.getElementById('headerlistOne').innerHTML=headerlist;
+    
+}
+
 function getListOne(tipo,max){
     let category=tipo
     let cant=max 
@@ -65,28 +91,55 @@ function getListOne(tipo,max){
             data.forEach(function(prod) {
                     productos += `
                     <div class="col-sm-4">
-                    <div class="thumbnail">
-                    <a href="http://localhost/producto_detalle.html?id=${prod.id}"><img src="/images/${prod.id}.jpg" alt="${prod.nombre}" width="400" height="300"></a>
-                      <p><strong>${prod.nombre}</strong></p>
+                    <p class="text-center"><strong>${prod.nombre}</strong></p><br>
+                    <a href="#demo" data-toggle="collapse">
+                    <a href="http://localhost/producto_detalle.html?id=${prod.id}">  <img src="/images/${prod.id}.jpg" class="img-circle person" alt="${prod.nombre}" width="255" height="255"></a>
+                    </a>
+                    <div id="demo" class="collapse">
+                      
+                      <!-- esta tachado  <p>${prod.descripcion}</p>-->
                       <p><strong>$ ${prod.precio}</strong></p>
-                    <!-- esta tachado  <p>${prod.descripcion}</p>-->
-                      <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
                     </div>
                   </div>
 
                 `;
+              
             });
-            document.getElementById('bebidass').innerHTML=productos;
+            document.getElementById('getListOne').innerHTML=productos;
                   
         })
-        //  .catch((err)=>console.error(err))
+        
+}
+
+function mostrarListaUno(){
+    headerlistOne()
+    getListOne(1,6)
+
+}
+function headerlistTwo(){
+    var headerList=``;
+
+    headerList += `
+    <div id="whiskey" class="bg-1">
+    <div class="container">
+      <h3 class="text-center">whiskey</h3>
+      <p class="text-center">la seleccion de la <b> semanab</b></p>
+         <div id="listagetListTwo" class="row text-center"></div>
+          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default">ver mas </button>
+            </div>
+          </div>
+    </div>
+</div>`;  
+      
+    document.getElementById('headerlistTwo').innerHTML=headerList;
+    
 }
 function getListTwo(tipo,max){
     let category=tipo
     let cant=max 
     
-    //RestApi.get(`/api/filter?category=${category}&max=${cant}`)
-          //.then((msg)=> console.log(msg))
      fetch(`/api/filter?category=${category}&max=${cant}`)   
           .then((res)=>res.json())
           .then((data)=>{
@@ -96,23 +149,57 @@ function getListTwo(tipo,max){
           
             data.forEach(function(prod) {
                     productos += `
-                    <div class="col-sm-4">
-                    <div class="thumbnail">
-                    <a href="http://localhost/producto_detalle.html?id=${prod.id}"><img src="/images/${prod.id}.jpg" alt="${prod.nombre}" width="400" height="300"></a>
-                      <p><strong>${prod.nombre}</strong></p>
-                      <p><strong>$ ${prod.precio}</strong></p>
-                    <!-- esta tachado  <p>${prod.descripcion}</p>-->
-                      <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-                    </div>
-                  </div>
+                    
+                <div class="col-sm-4">
+                <div class="thumbnail">
+                <a href="http://localhost/producto_detalle.html?id=${prod.id}"><img src="images/${prod.id}.jpg" alt="${prod.nombre}" width="400" height="300"></a>
+                  <p><strong>${prod.nombre}</strong></p>
+                  <p>${prod.precio}</p>
+                  <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+                </div>
+              </div>
 
                 `;
             });
-            document.getElementById('bebidass').innerHTML=productos;
+            document.getElementById('listagetListTwo').innerHTML=productos;
                   
         })
-        //  .catch((err)=>console.error(err))
+     }
+
+     function mostrarListaDos(){
+        headerlistTwo()
+        getListTwo(2,6)
+    
+    }
+
+function headerlistThree(){
+    var introHtml=``;
+
+    introHtml += ` <div id="vinos" class="container text-center">
+        <h3>WINE WINE</h3>
+         <p><em>POR QUE NOS ENCANTA EL VINO </em></p>
+          <p>
+          Porque nos encanta las mejores bebidas es que vendemos lo mejor y no conforme con eso y porque no interesa tus 
+          gustos organizamos degustaciones para conocerte y saber que bebidas son las que te acompañan en una reunion, con la familia o un asado con amigos
+          </p>
+          <br>
+          <div id="listagetListThree" class="row"></div>
+           <!--aca dentro va los productos --->     
+       
+       <div class="btn-group btn-group-justified" role="group" aria-label="...">
+         <div class="btn-group" role="group">
+             <button type="button" class="btn btn-default" id="getVinos">ver mas </button>
+         </div>
+       </div>
+    </div>
+`;  
+      
+    document.getElementById('headerlistThree').innerHTML=introHtml;
+    
 }
+
+
+
 function getListThree(tipo,max){
     let category=tipo
     let cant=max 
@@ -129,19 +216,25 @@ function getListThree(tipo,max){
             data.forEach(function(prod) {
                     productos += `
                     <div class="col-sm-4">
-                    <div class="thumbnail">
-                    <a href="http://localhost/producto_detalle.html?id=${prod.id}"><img src="/images/${prod.id}.jpg" alt="${prod.nombre}" width="400" height="300"></a>
-                      <p><strong>${prod.nombre}</strong></p>
-                      <p><strong>$ ${prod.precio}</strong></p>
-                    <!-- esta tachado  <p>${prod.descripcion}</p>-->
-                      <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
-                    </div>
-                  </div>
-
-                `;
+                        <p class="text-center"><strong>${prod.nombre}</strong></p><br>
+                        <a href="#demo" data-toggle="collapse">
+                        <a href="http://localhost/producto_detalle.html?id=${prod.id}"><img src="images/${prod.id}.jpg" class="img-circle person" alt="Random Name" width="255" height="255"></a>
+                         </a>
+                            <div id="demo" class="collapse">
+                            <p>${prod.precio}</p>
+                            <!-- esta tachado  <p>${prod.descripcion}</p>-->
+                             <!--<p>Member since 1988</p>-->
+                         </div>
+                    </div>`;
             });
-            document.getElementById('bebidass').innerHTML=productos;
+            document.getElementById('listagetListThree').innerHTML=productos;
                   
         })
-        //  .catch((err)=>console.error(err))
+  
+}
+
+function mostrarListaTres(){
+    headerlistThree()
+    getListThree(3,6)
+
 }

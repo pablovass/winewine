@@ -55,7 +55,7 @@ function getManyproduct(tipo,max){
 /************************************************************************************/
 
 
-function htmlIntro(){
+function headerProduct(){
     var introHtml=``;
 
     introHtml += `
