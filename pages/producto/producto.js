@@ -25,8 +25,7 @@ function getManyproduct(tipo,max){
     let category=tipo
     let cant=max 
     
-    //RestApi.get(`/api/filter?category=${category}&max=${cant}`)
-          //.then((msg)=> console.log(msg))
+    
      fetch(`/api/filter?category=${category}&max=${cant}`)   
           .then((res)=>res.json())
           .then((data)=>{
