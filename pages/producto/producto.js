@@ -9,23 +9,6 @@ class Producto{
     }
 
 }
-/*SETTER AND GETTER */ 
-
-
-//post insert
-//setProduct(){
-//    console.log("obtener muchos productos")
-//} 
-//// delete 
-//deleteProduct(){
-//    console.log("obtener muchos productos")
-//}
-//// update 
-//updateproduct(){
-//    console.log("obtener muchos productos")
-//}
-        
-
 //GET
 function getOneProduct(id,tipo){
     let identificador=id
@@ -56,7 +39,7 @@ function getManyproduct(tipo,max){
                     <a href="http://localhost/producto_detalle.html?id=${prod.id}"><img src="/images/${prod.id}.jpg" alt="${prod.nombre}" width="400" height="300"></a>
                       <p><strong>${prod.nombre}</strong></p>
                       <p><strong>$ ${prod.precio}</strong></p>
-                      <p>${prod.carasteristica}</p>
+                    <!-- esta tachado  <p>${prod.descripcion}</p>-->
                       <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
                     </div>
                   </div>
@@ -73,7 +56,7 @@ function getManyproduct(tipo,max){
 
 
 function htmlIntro(){
-    var introHtml;
+    var introHtml=``;
 
     introHtml += `
             <div id="listasBebidas" class="bg-1">
@@ -103,18 +86,3 @@ function htmlIntro(){
         //console.log(carasteristicas)
     
 }
-
-/************************************************************************************/
-
-//botonCerveza=document.getElementById('botonCerveza')
-//botonCerveza.addEventListener('click',function(){
-//    fetch('../api/filter?category=3&max=5')
-//      .then(data =>data.json())
-//      .then(data =>{
-//           get=data
-//  
-//           mostrarDatos(get)
-//          })
-//      })
-//  
-//

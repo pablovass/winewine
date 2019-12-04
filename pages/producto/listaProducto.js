@@ -68,7 +68,7 @@ function getWine(){
     .then((res)=>res.json())
     .then((prod)=>{
      
-        let product=''
+        let product=``;
         //console.log(data) para ver 
       
                 
@@ -105,7 +105,7 @@ function losOtros(prod){
     RestApi.get('/api/filter',{"category":prod.tipo})
     .then((data)=>{
      
-        let losOtros=''
+        let losOtros=``
         //console.log(data) para ver 
       
         data.forEach(function(prod) {
