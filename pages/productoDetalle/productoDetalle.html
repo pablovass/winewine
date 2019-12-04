@@ -35,18 +35,14 @@
 
 <script src="/js/RestApi.js"></script>
 <script src="/pages/producto/producto.js"></script>
-<script src="../js/util.js"></script>
+<script src="/js/util.js"></script>
 
 <script src="/inc/header.js"></script>
+<script src="productoDetalle.js"></script>
 <script>
-    console.log(URLParams.id)
-      
-    function showListProduct(){
-        getHeaderList(URLParams.category)
-        
-            getList(URLParams.category,URLParams.max)
-   }
-   showListProduct()
+  //URLParams.id
+  //URLParams.tipo
+   getProductDetail(URLParams.id,URLParams.tipo)
   </script>
 
 </body>

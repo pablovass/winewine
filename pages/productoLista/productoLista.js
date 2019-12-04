@@ -36,10 +36,10 @@ function getHeaderList(category){
                       
                   <div class="col-sm-4">
                   <div class="thumbnail">
-                  <a href=index?id=${prod.id}"><img src="/images/${prod.id}.jpg" alt="${prod.nombre}" /></a>
+                  <a href="http://localhost/pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}"><img src="/images/${prod.id}.jpg" alt="${prod.nombre}" /></a>
                     <p><strong>${prod.nombre}</strong></p>
                     <p>${prod.precio}</p>
-                    <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+                    <button class="btn" data-toggle="modal" data-target="#myModal" onclick="window.location.href = 'pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}';">Buy Tickets</button>
                   </div>
                 </div>
   
