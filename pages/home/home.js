@@ -91,7 +91,7 @@ function getListOne(tipo,max){
                     <div class="col-sm-4">
                     <p class="text-center"><strong>${prod.nombre}</strong></p><br>
                     <a href="#demo" data-toggle="collapse">
-                    <a href="http://localhost/producto_detalle.html?id=${prod.id}">  <img src="/images/${prod.id}.jpg" class="img-circle person" alt="${prod.nombre}" width="255" height="255"></a>
+                    <a href="http://localhost/pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}">  <img src="/images/${prod.id}.jpg" class="img-circle person" alt="${prod.nombre}" width="255" height="255"></a>
                     </a>
                     <div id="demo" class="collapse">
                       
@@ -122,7 +122,7 @@ function getHeaderListTwo(category){
     <div id="whiskeys" class="bg-1">
     <div class="container">
       <h3 class="text-center">whiskey</h3>
-      <p class="text-center">la seleccion de la <b> semanab</b></p>
+      <p class="text-center">la seleccion de la <b> semana</b></p>
          <div id="listagetListTwo" class="row text-center"></div>
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
@@ -150,10 +150,10 @@ function getListTwo(tipo,max){
                     
                 <div class="col-sm-4">
                 <div class="thumbnail">
-                <a href=index?id=${prod.id}"><img src="images/${prod.id}.jpg" alt="${prod.nombre}" /></a>
+                <a href="http://localhost/pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}"><img src="images/${prod.id}.jpg" alt="${prod.nombre}" /></a>
                   <p><strong>${prod.nombre}</strong></p>
                   <p>${prod.precio}</p>
-                  <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+                  <button class="btn" data-toggle="modal" data-target="#myModal" onclick="window.location.href = 'pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}';">Comprar</button>
                 </div>
               </div>
 
@@ -177,11 +177,11 @@ function headerlistThree(category){
 
     introHtml += ` 
     <div id="beer" class="container text-center">
-        <h3>WINE WINE</h3>
-         <p><em>POR QUE NOS ENCANTA EL VINO </em></p>
+        <h3>Querias Cervezas?</h3>
+         <p><em>Nunca esta demas tener unas en nuestra heladera </em></p>
           <p>
-          Porque nos encanta las mejores bebidas es que vendemos lo mejor y no conforme con eso y porque no interesa tus 
-          gustos organizamos degustaciones para conocerte y saber que bebidas son las que te acompañan en una reunion, con la familia o un asado con amigos
+          No caracterizamos por tener cervezas de todas partes del mundo al mejor precio. 
+          si no llegaramos a terner alguna marca que te guste o por esa casualidad no la llegste a encontrar en nuestro catalogo no dudes en consultarnos 
           </p>
           <br>
           <div id="listagetListThree" class="row"></div>
@@ -216,7 +216,7 @@ function getListThree(tipo,max){
                     <div class="col-sm-4">
                         <p class="text-center"><strong>${prod.nombre}</strong></p><br>
                         <a href="#demo" data-toggle="collapse">
-                        <a href="http://localhost/producto_detalle.html?id=${prod.id}"><img src="images/${prod.id}.jpg" class="img-circle person" alt="Random Name" width="255" height="255"></a>
+                        <a href="http://localhost/pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}"><img src="images/${prod.id}.jpg" class="img-circle person" alt="Random Name" width="255" height="255"></a>
                          </a>
                             <div id="demo" class="collapse">
                             <p>${prod.precio}</p>
