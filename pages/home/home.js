@@ -120,7 +120,7 @@ function headerlistTwo(){
     var headerList=``;
 
     headerList += `
-    <div id="whiskey" class="bg-1">
+    <div id="whiskeys" class="bg-1">
     <div class="container">
       <h3 class="text-center">whiskey</h3>
       <p class="text-center">la seleccion de la <b> semanab</b></p>
@@ -177,7 +177,7 @@ function headerlistThree(){
     var introHtml=``;
 
     introHtml += ` 
-    <div id="cervezas" class="container text-center">
+    <div id="beer" class="container text-center">
         <h3>WINE WINE</h3>
          <p><em>POR QUE NOS ENCANTA EL VINO </em></p>
           <p>

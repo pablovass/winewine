@@ -1,6 +1,8 @@
 function getHeader(){
     var header =``
-    header+= `<nav class="navbar navbar-default navbar-fixed-top">
+    header+= `
+   
+    <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -12,10 +14,10 @@ function getHeader(){
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-          <li id="home"><a href="#home">HOME</a></li>
+          <li id="homes"><a href="#home">HOME</a></li>
           <li id="vino"><a href="#vinos">VINOS</a></li>
-          <li id="whiskey" ><a href="#whiskey" >WHISKEY</a></li>
-          <li id="cervezas"><a href="#cervezas">CERVEZA</a></li>
+          <li id="whiskey" ><a href="#whiskeys" >WHISKEY</a></li>
+          <li id="cervezas"><a href="#beer">CERVEZA</a></li>
           <li id="contacto"><a href="#contact">CONTACTO</a></li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">LOGIN
