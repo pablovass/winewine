@@ -46,7 +46,7 @@ function getManyproduct(tipo,max){
           .then((res)=>res.json())
           .then((data)=>{
      
-            var productos=''
+            var productos=``;
             //console.log(data) para ver 
           
             data.forEach(function(prod) {

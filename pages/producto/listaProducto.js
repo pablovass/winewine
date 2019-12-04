@@ -29,7 +29,7 @@ function getEspumantes(){
      .then((res)=>res.json())
      .then((data)=>{
       
-         let product=''
+         let product=``;
          console.log(data) //para ver 
        
          data.forEach(function(prod) {

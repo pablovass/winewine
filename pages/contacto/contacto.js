@@ -3,7 +3,7 @@ tengo que hacer la pagina 100 dinamica que cada parte sea un componente
 va ser la forma mas facil de mostrar y sacar cosas que no van en el contenido 
 */
 function getContacto(){
-    var template;
+    var template=``;
     template+=`<div id="contact" class="container">
     <h3 class="text-center">Contacto</h3>
     <p class="text-center"><em>dejanos tus consultas!</em></p>

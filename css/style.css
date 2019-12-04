@@ -138,3 +138,9 @@
   textarea {
     resize: none;
   }
+  div {
+    display: block;
+  }
+  #text{
+    display: block;
+  }
