@@ -1,3 +1,5 @@
+//NO LO ESTOY USANDO 2019 
+
 class Producto{
     constructor(id,nombre,descripcion,precio,cant_producto,tipo){
         this.id=id;

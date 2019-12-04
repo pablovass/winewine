@@ -49,7 +49,8 @@ function getCarrusel(){
 }
 
 
-function headerlistOne(){
+function headerlistOne(category){
+  var tipo=category
     var headerlist=``;
 
     headerlist += `
@@ -66,7 +67,7 @@ function headerlistOne(){
    
    <div class="btn-group btn-group-justified" role="group" aria-label="...">
      <div class="btn-group" role="group">
-         <button type="button" class="btn btn-default" onclick="window.location.href = 'pages/productoLista/productoLista.html';">ver mas </button>
+         <button type="button" class="btn btn-default" onclick="window.location.href = 'pages/productoLista/productoLista.html?category=${tipo}&max=5';">ver mas </button>
      </div>
    </div>
 </div>`;  
@@ -78,15 +79,12 @@ function headerlistOne(){
 function getListOne(tipo,max){
     let category=tipo
     let cant=max 
-    
-    //RestApi.get(`/api/filter?category=${category}&max=${cant}`)
-          //.then((msg)=> console.log(msg))
+ 
      fetch(`/api/filter?category=${category}&max=${cant}`)   
           .then((res)=>res.json())
           .then((data)=>{
      
             var productos=``;
-            //console.log(data) para ver 
           
             data.forEach(function(prod) {
                     productos += `
@@ -112,11 +110,12 @@ function getListOne(tipo,max){
 }
 
 function mostrarListaUno(){
-    headerlistOne()
+    headerlistOne(1)
     getListOne(1,6)
 
 }
-function headerlistTwo(){
+function getHeaderListTwo(category){
+  var tipo=category
     var headerList=``;
 
     headerList += `
@@ -127,13 +126,13 @@ function headerlistTwo(){
          <div id="listagetListTwo" class="row text-center"></div>
           <div class="btn-group btn-group-justified" role="group" aria-label="...">
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">ver mas </button>
+            <button type="button" class="btn btn-default" onclick="window.location.href = 'pages/productoLista/productoLista.html?category=${tipo}&max=5';">ver mas </button>
             </div>
           </div>
     </div>
 </div>`;  
       
-    document.getElementById('headerlistTwo').innerHTML=headerList;
+    document.getElementById('getHeaderListTwo').innerHTML=headerList;
     
 }
 function getListTwo(tipo,max){
@@ -145,7 +144,6 @@ function getListTwo(tipo,max){
           .then((data)=>{
      
             var productos=``;
-            //console.log(data) para ver 
           
             data.forEach(function(prod) {
                     productos += `
@@ -168,12 +166,13 @@ function getListTwo(tipo,max){
      }
 
      function mostrarListaDos(){
-        headerlistTwo()
+      getHeaderListTwo(2)
         getListTwo(2,6)
     
     }
 
-function headerlistThree(){
+function headerlistThree(category){
+  var tipo=category
     var introHtml=``;
 
     introHtml += ` 
@@ -190,7 +189,7 @@ function headerlistThree(){
        
        <div class="btn-group btn-group-justified" role="group" aria-label="...">
          <div class="btn-group" role="group">
-             <button type="button" class="btn btn-default" id="getVinos">ver mas </button>
+         <button type="button" class="btn btn-default" onclick="window.location.href = 'pages/productoLista/productoLista.html?category=${tipo}&max=5';">ver mas </button>
          </div>
        </div>
     </div>
@@ -211,7 +210,6 @@ function getListThree(tipo,max){
           .then((data)=>{
      
             var productos=``;
-            //console.log(data) para ver 
           
             data.forEach(function(prod) {
                     productos += `
@@ -234,7 +232,7 @@ function getListThree(tipo,max){
 }
 
 function mostrarListaTres(){
-    headerlistThree()
+    headerlistThree(3)
     getListThree(3,6)
 
 }
