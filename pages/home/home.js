@@ -152,7 +152,7 @@ function getListTwo(tipo,max){
                     
                 <div class="col-sm-4">
                 <div class="thumbnail">
-                <a href="http://localhost/producto_detalle.html?id=${prod.id}"><img src="images/${prod.id}.jpg" alt="${prod.nombre}" width="400" height="300"></a>
+                <a href="http://localhost/producto_detalle.html?id=${prod.id}"><img src="images/${prod.id}.jpg" alt="${prod.nombre}" /></a>
                   <p><strong>${prod.nombre}</strong></p>
                   <p>${prod.precio}</p>
                   <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
@@ -175,7 +175,8 @@ function getListTwo(tipo,max){
 function headerlistThree(){
     var introHtml=``;
 
-    introHtml += ` <div id="vinos" class="container text-center">
+    introHtml += ` 
+    <div id="cervezas" class="container text-center">
         <h3>WINE WINE</h3>
          <p><em>POR QUE NOS ENCANTA EL VINO </em></p>
           <p>
