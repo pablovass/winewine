@@ -19,7 +19,7 @@ class FileController{
     header('Expires: 0');
     header('Cache-Control: must-revalidate');
     header('Content-Length: ' . filesize($file));
-    header('Content-type: image/jpeg');
+    header('Content-type: image/jpg');
 
     readfile($file);
     die();
