@@ -11,6 +11,7 @@ document
     }
     RestApi.post("/api/login",credentials)
       .then((userInfo)=>{
+        console.log(userInfo)
         sessionStorage.credentials = JSON.stringify(userInfo)
         sessionStorage.setItem('user',userTag.value)
 

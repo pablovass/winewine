@@ -14,4 +14,7 @@ class UserController{
     $user->create();
   }
 
+public static function byId($id){   
+        return Usuarios::byId($id);
+    }
 }
