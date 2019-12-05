@@ -11,7 +11,7 @@ class RestApi{
       })
       .then((resp)=>{
         if(resp.status == 401){
-          window.location = "/login.html"
+          window.location = "http://localhost/pages/login/login.html"
         }
         return resp.text()
       })

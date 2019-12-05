@@ -20,7 +20,7 @@ function getHeader(){
           <li id="cervezas"><a href="#beer">CERVEZA</a></li>
           <li id="contacto"><a href="#contact">CONTACTO</a></li>
           <li class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" href="#">LOGIN
+            <a class="dropdown-toggle" data-toggle="dropdown" href="http://localhost/pages/login/login.html">LOGIN
             <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a href="#">Registrase</a></li>
