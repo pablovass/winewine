@@ -1,6 +1,5 @@
 // variables de session 
-const isLogged = sessionStorage.credentials != null
-let currentUser =  isLogged ? JSON.parse(sessionStorage.credentials) : null
+const isLogged = sessionStorage.user != null
 
 
 
