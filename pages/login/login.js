@@ -1,18 +1,20 @@
 const userTag = document.getElementById("username")
 const passTag = document.getElementById("password")
 
+
 document
   .getElementById("login")
   .addEventListener("click",()=>{
-    const user = {
+    var credentials = {
       username : userTag.value,
       password : passTag.value
     }
-    RestApi.post("/api/login",user)
+    RestApi.post("/api/login",credentials)
       .then((userInfo)=>{
-        sessionStorage.user = JSON.stringify(userInfo)
+        sessionStorage.credentials = JSON.stringify(userInfo)
+        sessionStorage.setItem('user',userTag.value)
 
-        window.location.href = "http://localhost/"
+        window.location.href = "http://localhost/pages/panel/panel.html"
       })
       .catch((err)=>{
         alert("Error al logearse")
@@ -20,15 +22,5 @@ document
       })
   })
 
-//$("#login").on("click",()=>{
-//  const credentials = {
-//    "username" : $("#username").value,
-//    "password" : $("#password").value
-//  }
-//
-//  RestApi.post("/api/login",credentials)
-//  console.log(credentials)
-//    .then((msg)=> console.log(msg))
-//    .catch((err)=>console.error(err))
-//})
+
 
