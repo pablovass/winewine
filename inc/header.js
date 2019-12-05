@@ -1,3 +1,8 @@
+// variables de session 
+const isLogged = sessionStorage.user != null
+let currentUser =  isLogged ? JSON.parse(sessionStorage.user) : null
+
+
 function getHeader(){
     var header =``
     header+= `

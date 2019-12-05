@@ -19,3 +19,16 @@ document
         console.error(err)
       })
   })
+
+//$("#login").on("click",()=>{
+//  const credentials = {
+//    "username" : $("#username").value,
+//    "password" : $("#password").value
+//  }
+//
+//  RestApi.post("/api/login",credentials)
+//  console.log(credentials)
+//    .then((msg)=> console.log(msg))
+//    .catch((err)=>console.error(err))
+//})
+
