@@ -11,3 +11,10 @@ $RestApi->get("/api/user/?",function($id){
   return PrCnt::byId($id);
 
 });
+
+//http://localhost/api/filterU?usuario=jose2017&pass=123456
+$RestApi->get("/api/filterU",function($params){
+  $username = $params->getParam("usuario");
+  $pass = $params->getParam("pass");
+  return PrCnt::filterU($username, $pass);
+});

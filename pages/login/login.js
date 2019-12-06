@@ -2,18 +2,17 @@ const userTag = document.getElementById("username")
 const passTag = document.getElementById("password")
 
 
-document
+  document
   .getElementById("login")
   .addEventListener("click",()=>{
-    var credentials = {
+    const user = {
       username : userTag.value,
       password : passTag.value
     }
-    RestApi.post("/api/login",credentials)
+    RestApi.post("/api/login",user)
       .then((userInfo)=>{
-        console.log(userInfo)
-        sessionStorage.credentials = JSON.stringify(userInfo)
-        sessionStorage.setItem('user',userTag.value)
+        sessionStorage.user = JSON.stringify(userInfo)
+        localStorage.setItem('name',user.username)
 
         window.location.href = "http://localhost/pages/panel/panel.html"
       })
@@ -22,6 +21,4 @@ document
         console.error(err)
       })
   })
-
-
 

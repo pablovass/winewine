@@ -15,6 +15,10 @@ function chargeMoney(){
 
 }
 
+function showQuestions(){
+
+}
+
 function askQuestions(){
 
 }
@@ -22,6 +26,7 @@ function askQuestions(){
 function showPurchases(){
 
 }
+
 function showPurchaseDetail(){
 
 }

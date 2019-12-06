@@ -23,16 +23,17 @@ class AuthController{
     die();
   }
 
-  static function authenticate($username,$password){
-    $users = Usuarios::where("usuario = '$username' and pass = '$password'");
-    if(isset($users[0])){
-      $_SESSION['user'] = $users[0]['role'];
-      return $users[0]['role'];
-    } else {
-        header("HTTP/1.1 401 UNAUTHORIZED");
-        die();
-    }
-  }
+ static function authenticate($username,$password){
+   $users = Usuarios::where("usuario = '$username' and pass = '$password'");
+   if(isset($users[0])){
+     $_SESSION['user'] = $users[0]['role'];
+     return $users[0]['role'];
+   } else {
+       header("HTTP/1.1 401 UNAUTHORIZED");
+       die();
+   }
+ }
+
 
   static function logout(){
       $_SESSION['user'] = NULL;
