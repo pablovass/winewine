@@ -22,26 +22,12 @@ public static function byId($id){
         return Usuarios::byId($id);
     }
 
- // public static function byUserName($username){   
-  //    return Usuarios::byUserName($username);
-  //}    
-  
   static function filterU($username,$pass){
     return Usuarios::where("usuario = '$username' pass= '$pass'");
 
   }
+  static function filteruser($username){
+    return Usuarios::where("usuario = '$username' ");
 
-//public static function getUser($id){
-// //controller\UserController::authenticate($user->username,$user->pass);
-//    $user = new Usuarios();
-//    $user->usuario = $username;
-//    $user->pass = $pass;
-//    $user->role = 0;
-//    $user->apellido=$apellido;
-//    $user->nombre=$nombre;
-//    $user->email->$email;
-//    $user->dinero->$dinero;
-//    $user->create();
-//    return Usuarios::getUser($id);
-//} 
+  } 
 }

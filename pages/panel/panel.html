@@ -1,9 +1,10 @@
-<!-- es el panel de usuario-->
+
 <!DOCTYPE html>
 <html lang="es">
 <head id="getHead">
         <title>wine store</title>
   <script src="/inc/head.js"></script>
+  
 </head>
 <body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
 <br><br>
@@ -61,7 +62,8 @@
             <div class="col-sm-4">
               <div class="well">
                 <h4>Credito</h4>
-                <div id="showMoney"></div>
+                
+                <p><div id="getShowMoney"></div></p>
                   
                   <button class=".btn-xs btn btn-primary" data-toggle="modal" data-target="#myModal">Cargar mas</button>
              
@@ -156,22 +158,27 @@
   <footer id="getFooter" class="text-center">
     <script src="/inc/footer.js"></script>
   </footer>
-  </div>
-  <!--final del home-->  
  
-
-
-
-
-<script src="/js/RestApi.js"></script>
+  <!--final del home-->  
+ <script src="/js/RestApi.js"></script>
 <script src="/pages/producto/producto.js"></script>
 <script src="/js/util.js"></script>
-<script src="usuario.js"></script>
-
 <script src="/inc/header2.js"></script>
 <script src="panel.js"></script>
+<script src="usuario.js"></script>
+<script>
+ var moneys= user.dinero
 
+function showMoney(moneys){
 
+  money=moneys
+  let dineroUser=``; 
+    
+    dineroUser += `<p>$ 234242</p>`;
+    document.getElementById('getShowMoney').innerHTML=dineroUser;
+    console.log(moneys)
+  }   
 
+showMoney()</script>
 </body>
 </html>
