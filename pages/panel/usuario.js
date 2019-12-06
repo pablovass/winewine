@@ -95,5 +95,8 @@ function uploadToFavorites(){
 //  return(myCredentials)
 //}
 
+/*
+voy a tener que hacer fect a lo loco por que el temas de los objetos no funciona y ya perdi un dia con eso 
 
+*/
 
