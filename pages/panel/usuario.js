@@ -58,19 +58,20 @@ function getUser(){
    RestApi.get(`http://localhost/api/filteruser?usuario=${username}`)   
    
    .then((data)=>{
-       user.id=data[0].id;
-       user.usuario=data[0].usuario
-       user.nombre=data[0].nombre
-       user.apellido=data[0].apellido
-       user.email=data[0].email
-       user.dinero=data[0].dinero
+       
+      user.id=data[0].id;
+      user.usuario=data[0].usuario
+      user.nombre=data[0].nombre
+      user.apellido=data[0].apellido
+      user.email=data[0].email
+      user.dinero=data[0].dinero
        
        return(user)
    });
     
 }
 
-getUser()
+
 
 function  makePurchese(){
 
@@ -83,20 +84,13 @@ function uploadToFavorites(){
     
 }
 
-//function getUser(){
-//  var myCredentials;
-//  if (sessionStorage.credentials =!null ){
-//    
-//  var myCredentials = {
-//    username : userTag.value,
-//    password : passTag.value
-//  }
-//}
-//  return(myCredentials)
-//}
-
-/*
-voy a tener que hacer fect a lo loco por que el temas de los objetos no funciona y ya perdi un dia con eso 
-
-*/
-
+function showMoney(){
+    getUser()
+    
+    let dineroUser=``; 
+      dineroUser += `<p>${user.dinero}</p>`;
+    return  (document.getElementById('getShowMoney').innerHTML=dineroUser);
+     // console.log()
+    }   
+  
+  showMoney()
