@@ -19,21 +19,35 @@ class ProductController{
     public static function delete($id){   
         $prod =  Producto::byId($id);
         $prod->delete();
-        return "Ok";
+       return "Ok";
+    
     }
     
-    public static function create($name,$price){  
-        $p = new Producto();
-        $p->nombre = $name;
-        $p->precio = $price;
-        $p->create();
-        return "OK";
-    }
+  //  public static function create($name,$price){  
+  //      $p = new Producto();
+  //      $p->nombre = $name;
+  //      $p->precio = $price;
+  //      $p->create();
+  //      return "OK";
+  //  }
+  public static function create($id,$nombre,$precio,$descripcion,$cant_producto,$tipo){  
+    $p = new Producto();
+    $p->id=$id;
+    $p->nombre = $nombre;
+    $p->precio = $precio;
+    $p->descripcion=$descripcion;
+    $p->cant_producto=$cant_producto;
+    $p->tipo->$tipo;
+    $p->create();
+  }
     
      public static function update($id,$name,$price){  
         $p = Producto::byId($id);
-        $p->nombre = $name;
-        $p->precio = $price;
+        $p->nombre = $nombre;
+        $p->precio = $precio;
+        $p->descripcion=$descripcion;
+        $p->cant_producto=$cant_producto;
+        $p->tipo->$tipo;
         $p->update();
         return "OK";
     }

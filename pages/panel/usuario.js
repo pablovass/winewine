@@ -54,23 +54,29 @@ var user=new Usuario();
 
 function getUser(){
   
-   let username=(localStorage.name);
+   let username=(localStorage.user);
    RestApi.get(`http://localhost/api/filteruser?usuario=${username}`)   
    
    .then((data)=>{
-       
-      user.id=data[0].id;
-      user.usuario=data[0].usuario
-      user.nombre=data[0].nombre
+       //console.log(data)
+      user.id = data[0].id;
+      user.usuario = data[0].usuario
+      user.nombre = data[0].nombre
       user.apellido=data[0].apellido
       user.email=data[0].email
       user.dinero=data[0].dinero
-       
+      
+  localStorage.setItem('id',user.id)
+  
+  localStorage.setItem('nombre',user.nombre)
+  localStorage.setItem('apellido',user.apellido)
+  localStorage.setItem('mail',user.email)
+ 
        return(user)
    });
     
 }
-
+getUser()
 
 
 function  makePurchese(){
@@ -84,13 +90,4 @@ function uploadToFavorites(){
     
 }
 
-function showMoney(){
-    getUser()
-    
-    let dineroUser=``; 
-      dineroUser += `<p>${user.dinero}</p>`;
-    return  (document.getElementById('getShowMoney').innerHTML=dineroUser);
-     // console.log()
-    }   
-  
-  showMoney()
+

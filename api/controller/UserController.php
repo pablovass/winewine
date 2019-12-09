@@ -14,15 +14,24 @@ class UserController{
     $user->dinero->$dinero;
     $user->apellido=$apellido;
     $user->nombre=$nombre;
+   
     $user->role = 0;
     $user->create();
   }
+public static function updatedinero($id,$dinero){  
+    $user = Usuarios::byId($id);
+    $user->dinero = $dinero;
+    $user->updatedinero();
+    return "OK";
+}  
 
 public static function byId($id){   
         return Usuarios::byId($id);
     }
 
-  static function filterU($username,$pass){
+
+
+static function filterU($username,$pass){
     return Usuarios::where("usuario = '$username' pass= '$pass'");
 
   }

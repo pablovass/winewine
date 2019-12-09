@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+    <html lang="es">
+        <head id="getHead">
+                <title>wine store</title>
+          <script src="/inc/head.js"></script>
+          
+        </head>
+        <body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
+        <br><br>
+            <header id="getHeader2">
+                
+            </header>
+        <body>
+
+<div class="container" >
+  <h2>cargar credito</h2>
+   <div class="form-group">
+      <label for="Carga">Cargar:</label>
+      <input type="id" class="form-control" id="id" placeholder="pone el id" name="id">
+      
+    <button id="borrar" type="submit" class="btn btn-default">Aceptar y Cargar</button>
+
+    </div>
+   
+</div>
+
+<br><br><br><br><br><br><br><br><!--inicio de contacto-->
+  <div id="getContact"></div>
+  <!-- fin de contacto -->
+  
+</div>
+  <!-- Footer -->
+  <footer id="getFooter" class="text-center">
+    <script src="/inc/footer.js"></script>
+  </footer>
+
+ <script >
+  $("#borrar").on("click",()=>{
+        const credentials = {
+          "id" : $("#id").value,
+          
+        }
+
+        RestApi.del("/api/product/",credentials)
+          .then((msg)=> console.log(msg))
+          .catch((err)=>console.error(err))
+      })
+ 
+ 
+ 
+ </script>
+  <!--final del home-->  
+ <script src="/js/RestApi.js"></script>
+<script src="/pages/producto/producto.js"></script>
+<script src="/js/util.js"></script>
+<script src="/inc/header2.js"></script>
+
+<script src="usuario.js"></script>
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+</body>
+</html>
