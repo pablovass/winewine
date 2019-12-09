@@ -1,4 +1,10 @@
 <?php
+use controller\UserController as UserCnt;
+
+
+
+header('Content-Type: application/json');
+
 use controller\UserController as PrCnt;
 use controller\AuthController;
 
@@ -6,13 +12,6 @@ $RestApi->post("/api/user",function ($user){
   controller\UserController::registrate($user->username,$user->pass);
   return "OK";
 });
-
-//http://localhost/api/updatedinero?id=4&dinero=21
-$RestApi->put("/api/updatedinero?",function($id,$data){
-  //AuthController::validateAdmin();
-  return  PrCnt::updatedinero(id, $data->dinero);
-});
-
 
 //http://localhost/api/user/1
 $RestApi->get("/api/user/?",function($id){
@@ -30,7 +29,24 @@ $RestApi->get("/api/filterU",function($params){
 //http://localhost/api/filterU?usuario=jose2017
 $RestApi->get("/api/filteruser",function($params){
   $username = $params->getParam("usuario");
-  
   return PrCnt::filteruser($username);
 });
 
+
+$RestApi->delete("/api/user/?",function($id){
+  //AuthController::validateAdmin();
+  return PrCnt::delete($id);
+});
+
+//update dinero 
+
+$RestApi->put("/api/user/?",function($params){
+  $id = $params->getParam("id");
+  $dinero = $params->getParam("dinero");
+  return PrCnt::update($id,$dinero);
+});
+
+//$RestApi->put("/api/product/?",function($id,$data){
+    //AuthController::validateAdmin();
+  //  return PrCnt::update($id,$data->name,$data->price);
+//});

@@ -18,12 +18,7 @@ class UserController{
     $user->role = 0;
     $user->create();
   }
-public static function updatedinero($id,$dinero){  
-    $user = Usuarios::byId($id);
-    $user->dinero = $dinero;
-    $user->updatedinero();
-    return "OK";
-}  
+ 
 
 public static function byId($id){   
         return Usuarios::byId($id);
@@ -39,4 +34,23 @@ static function filterU($username,$pass){
     return Usuarios::where("usuario = '$username' ");
 
   } 
+
+public static function delete($id){   
+  $user =  Usuarios::byId($id);
+  $user->delete();
+ return "Ok";
+
 }
+//public static function update($id,$dinero){  
+//  $user = Usuarios::byId($id);
+//  $user->dinero = $dinero;
+//  $user->update();
+//  return "OK";
+//}
+static function update($id,$dinero){
+  return Usuarios::where("id = '$id' and dinero ='$dinero' ");
+
+} 
+
+}
+

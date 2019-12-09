@@ -40,8 +40,8 @@ class ProductController{
     $p->tipo->$tipo;
     $p->create();
   }
-    
-     public static function update($id,$name,$price){  
+ 
+     public static function update($id,$nombre,$precio,$descripcion,$cant_producto,$tipo){  
         $p = Producto::byId($id);
         $p->nombre = $nombre;
         $p->precio = $precio;
@@ -59,5 +59,9 @@ class ProductController{
        return Producto::where("id = '$id' and tipo = '$tipo'");
    
      }
-    
+     public static function prepare($id){  
+        
+        $stm =DbController::prepare("DELETE from producto where id = ?");
+        $stm ->bind_para,("s",$nombre);
+        DbController::execute($stm);
 }

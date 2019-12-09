@@ -62,3 +62,4 @@ $RestApi->get("/api/filter2",function($params){
     $tipo = $params->getParam("tipo");
     return PrCnt::filter2($id,$tipo);
 });
+
