@@ -1,8 +1,6 @@
 
 var dineroUser;
 
-// logica del panel 
-
 function sayHi(){
     const tagH2= document.createElement("h2")
           tagH2.innerText=`Hola ${localStorage.user} !` 
@@ -25,31 +23,6 @@ function showMoney(){
 }
 showMoney()
 
-function setdinero(dineroUser){
-  user.dinero = dineroUser
-}
-setdinero()
-function mostrarFomularioCarGaPlata(){
-let formario=``;
-formario `<div class="container" >
-<h2>cargar credito</h2>
-<form action="/action_page.php" style="padding-left: 0px;">
-  <div class="form-group">
-    <label for="Carga">Cargar:</label>
-    <input type="dinero" class="form-control" id="dinero" placeholder="ingrese el monto a carga" name="dinero">
-  </div>
-  <div class="checkbox">
-    <label><input type="checkbox" name="remember">Aceptar los acuerdos y condiciones de la pagina</label>
-  </div>
-  <button type="submit" class="btn btn-default">Aceptar y Cargar</button>
-</form>
-</div>`
-
-}
-function chargeMoney(){
-
-
-}
 
 function showQuestions(){
 
