@@ -4,19 +4,21 @@ use controller\BilleteraController as BCnt;
 use controller\AuthController;
 
 $RestApi->get("/api/billetera/?",function($id){
-    return PCnt::byId($id);
+    return BCnt::byId($id);
 });
 
-//
-//$RestApi->post("/api/Purchasing",function($data){
-//    AuthController::validateAdmin();
-//    return PCnt::create($data->name,$data->price);
-//});
-//
-//$RestApi->put("/api/Purchasing/?",function($id,$data){
-//    AuthController::validateAdmin();
-//    return PCnt::update($id,$data->name,$data->price);
-//});
+
+$RestApi->post("/api/billetera",function($data){
+    //AuthController::validateAdmin();
+    return BCnt::create($data->id,$data->idPersona,$data->dinero);
+});
+
+$RestApi->put("/api/billetera/?",function($id,$data){
+    //AuthController::validateAdmin();
+    return BCnt::update($id, $data->dinero);
+});
+
+
 //
 //$RestApi->get("/api/Purchasing",function(){
 //    return PCnt::all();

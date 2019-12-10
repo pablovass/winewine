@@ -1,31 +1,20 @@
-const userInput = document.getElementById("username")
-const passInput = document.getElementById("password")
-const nameInput = document.getElementById("name")
-const lastnameInput = document.getElementById("lastname")
-const emailInput = document.getElementById("email")
+const btnCargarCredito = document.getElementById("cargarCredito")
+const dineroInput = document.getElementById("dinero")
 
-    getUser()
-    function cargarDinero(){
-      deleteUser()
-      
 
+   
 document
-.getElementById("addUser")
+.getElementById("cargarCredito")
 .addEventListener("click",()=>{
-  const user = {
-    usuario : userInput.value,
-    pass : passInput.value,
-    nombre: nameInput.value,
-    apellido:lastnameInput.value,
-    email: mailInput.value,
-    dinero: 1000
-
-
+  const carga = {
+    dinero : dineroInput.value,
+    idPersona: user.id
+    
   }
-  RestApi.post("/api/user",user)
-    .then((userInfo)=>{
+  RestApi.put("/api/billetera/1",carga)
+    .then((dineroInfo)=>{
       
-      window.location.href = "http://localhost/pages/login/login.html"
+      window.location.href = "http://localhost/pages/panel/panel.html"
     })
     .catch((err)=>{
       alert("Error al registrar")
@@ -35,4 +24,4 @@ document
 
 
 
-    }
+    
