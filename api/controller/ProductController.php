@@ -59,9 +59,11 @@ class ProductController{
        return Producto::where("id = '$id' and tipo = '$tipo'");
    
      }
-     public static function prepare($id){  
-        
-        $stm =DbController::prepare("DELETE from producto where id = ?");
-        $stm ->bind_para,("s",$nombre);
-        DbController::execute($stm);
+//     public static function prepare($id){  
+//        
+//        $stm =DbController::prepare("DELETE from producto where id = ?");
+//        $stm ->bind_para,("s",$nombre);
+//        DbController::execute($stm);
+//}
+//
 }

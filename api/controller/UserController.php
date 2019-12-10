@@ -6,15 +6,14 @@ use model\Usuarios;
 
 class UserController{
 
-  static function registrate($username,$pass){
+  static function registrate($usuario,$pass,$email,$apellido,$nombre){
     $user = new Usuarios();
-    $user->usuario = $username;
+    $user->usuario = $usuario;
     $user->pass = $pass;
-    $user->email->$email;
-    $user->dinero->$dinero;
-    $user->apellido=$apellido;
-    $user->nombre=$nombre;
-   
+    $user->email = $email;
+    
+    $user->apellido= $apellido;
+    $user->nombre= $nombre;
     $user->role = 0;
     $user->create();
   }

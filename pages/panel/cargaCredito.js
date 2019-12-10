@@ -1,44 +1,38 @@
-const dineroTag = document.getElementById("dinero")
+const userInput = document.getElementById("username")
+const passInput = document.getElementById("password")
+const nameInput = document.getElementById("name")
+const lastnameInput = document.getElementById("lastname")
+const emailInput = document.getElementById("email")
+
+    getUser()
+    function cargarDinero(){
+      deleteUser()
+      
 
 document
-.getElementById("cargarCredito")
+.getElementById("addUser")
 .addEventListener("click",()=>{
-  const diner = {
-     plata: dineroTag.value
+  const user = {
+    usuario : userInput.value,
+    pass : passInput.value,
+    nombre: nameInput.value,
+    apellido:lastnameInput.value,
+    email: mailInput.value,
+    dinero: 1000
+
+
   }
-       // utilizo la api para realizar un put enviando el objeto a actualizar
-        RestApi.put("/api/updatedinero?id=1&",diner)
-          .then((dinero)=>{
-            //En caso de exito en la operación muetro un cartel y reseteo los campos
-            alert("Se actualizó con éxito:" + dinero.msg)
-  
-            // Vuelvo a la pagina principal
-            document.location.href = "http://localhost/pages/panel/panel.html"
-          })
-          .catch((err)=>{
-            // en caso de error...
-            alert("Error al actualizar no se cargo el credito : " + err)
-          })
-      })
+  RestApi.post("/api/user",user)
+    .then((userInfo)=>{
+      
+      window.location.href = "http://localhost/pages/login/login.html"
+    })
+    .catch((err)=>{
+      alert("Error al registrar")
+      console.error(err)
+    })
+})
 
 
 
-    // document
-    // .getElementById("addUser")
-    // .addEventListener("click",()=>{
-    //   const user = {
-    //     username : userInput.value,
-    //     pass : passInput.value
-    //   }
-    //   RestApi.post("/api/user",user)
-    //     .then((userInfo)=>{
-    //       
-    //       window.location.href = "http://localhost/pages/login/login.html"
-    //     })
-    //     .catch((err)=>{
-    //       alert("Error al registrar")
-    //       console.error(err)
-    //     })
-    // })
-    // 
-    //   
+    }

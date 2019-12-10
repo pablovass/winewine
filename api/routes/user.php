@@ -1,5 +1,5 @@
 <?php
-use controller\UserController as UserCnt;
+
 
 
 
@@ -9,7 +9,7 @@ use controller\UserController as PrCnt;
 use controller\AuthController;
 
 $RestApi->post("/api/user",function ($user){
-  controller\UserController::registrate($user->username,$user->pass);
+  controller\UserController::registrate($user->usuario, $user->pass,$user->nombre, $user->apellido, $user->email );
   return "OK";
 });
 

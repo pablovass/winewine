@@ -91,3 +91,13 @@ function uploadToFavorites(){
 }
 
 
+function deleteUser(){
+    RestApi.del(`http://localhost/api/user/${user.id}`)   
+    .then((data)=>{
+        console.log(data)
+    });
+}
+
+function createUser(){
+
+}
