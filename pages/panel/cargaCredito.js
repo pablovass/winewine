@@ -1,23 +1,26 @@
 const btnCargarCredito = document.getElementById("cargarCredito")
-const dineroInput = document.getElementById("dinero")
-
+var dineroInput = document.getElementById("dinero")
 
    
 document
 .getElementById("cargarCredito")
 .addEventListener("click",()=>{
+  var uno=parseInt(dineroInput.value)
+  var dos =parseInt(localStorage.dinero)
+ var total = uno + dos  
+ 
   const carga = {
-    dinero : dineroInput.value,
+    dinero : total,
     idPersona: user.id
     
   }
-  RestApi.put("/api/billetera/1",carga)
+  RestApi.put(`/api/billetera/${localStorage.id}`,carga)
     .then((dineroInfo)=>{
       
       window.location.href = "http://localhost/pages/panel/panel.html"
     })
     .catch((err)=>{
-      alert("Error al registrar")
+      alert("Error al cargar credito")
       console.error(err)
     })
 })

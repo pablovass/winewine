@@ -26,13 +26,19 @@ get  email(){
  return this.emails;
 }
 get  dinero(){
- return this.money;
+    RestApi.get(`http://localhost/api/filterbilletera?idPersona=${localStorage.id}`)   
+    .then((data)=>{
+    this.money=data[0].dinero
+    });
+return this.money;
 }
 
 set id (value){
  this.i=value;
 }
+
 set usuario(value){
+    
  this.user=value;
 }
 set nombre(value){
@@ -64,7 +70,6 @@ function getUser(){
       user.nombre = data[0].nombre
       user.apellido=data[0].apellido
       user.email=data[0].email
-      user.dinero=data[0].dinero
       
   localStorage.setItem('id',user.id)
   

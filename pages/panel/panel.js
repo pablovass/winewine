@@ -1,5 +1,5 @@
 
-
+var dineroUser;
 
 // logica del panel 
 
@@ -8,20 +8,27 @@ function sayHi(){
           tagH2.innerText=`Hola ${localStorage.user} !` 
           document.getElementById('sayHi').appendChild(tagH2).parentNode.nodeName
 }
+
 sayHi()
 
 function showMoney(){
     RestApi.get(`http://localhost/api/filterbilletera?idPersona=${localStorage.id}`)   
     .then((data)=>{
-      console.log(data)
-        const tagH2= document.createElement("h2")
-        tagH2.innerText=`$ ${data[0].dinero} ` 
+      const tagH2= document.createElement("h2")
+        tagH2.innerText=`$ ${data[0].dinero} `
+        dineroUser= data[0].dinero
+        localStorage.setItem('dinero',dineroUser)
         document.getElementById('getShowMoney').appendChild(tagH2).parentNode.nodeName
-          
+          user.dinero=data[0].dinero
     });
+    return dineroUser
 }
 showMoney()
 
+function setdinero(dineroUser){
+  user.dinero = dineroUser
+}
+setdinero()
 function mostrarFomularioCarGaPlata(){
 let formario=``;
 formario `<div class="container" >

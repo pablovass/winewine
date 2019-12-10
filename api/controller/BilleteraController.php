@@ -29,19 +29,17 @@ class BilleteraController{
         $b->update();
         return "OK";
     }
-   //http://localhost/api/filter2?tipo=1&id=2
+ 
   static function filterbilletera($idPersona){
       return Billetera::where("idPersona = '$idPersona'");
   
     }
+    public static function delete($id){   
+        $b =  id::byId($id);
+        $b->delete();
+       return "Ok";
+    }
 
-//    
-//    public static function delete($id){   
-//        $prod =  Producto::byId($id);
-//        $prod->delete();
-//       return "Ok";
-//    
-//    }
 //    
 //  
 //  public static function create($id,$nombre,$precio,$descripcion,$cant_producto,$tipo){  

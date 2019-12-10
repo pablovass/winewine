@@ -24,6 +24,10 @@ $RestApi->get("/api/filterbilletera",function($params){
     return BCnt::filterbilletera($idPersona);
 });
 
+$RestApi->delete("/api/billetera/?",function($id){
+    //AuthController::validateAdmin();
+    return BrCnt::delete($id);
+});
 //
 //$RestApi->get("/api/Purchasing",function(){
 //    return PCnt::all();
