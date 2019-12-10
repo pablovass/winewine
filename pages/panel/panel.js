@@ -11,10 +11,9 @@ function sayHi(){
 sayHi()
 
 function showMoney(){
-    let username=(localStorage.user);
-    RestApi.get(`http://localhost/api/filteruser?usuario=${username}`)   
-    
+    RestApi.get(`http://localhost/api/filterbilletera?idPersona=${localStorage.id}`)   
     .then((data)=>{
+      console.log(data)
         const tagH2= document.createElement("h2")
         tagH2.innerText=`$ ${data[0].dinero} ` 
         document.getElementById('getShowMoney').appendChild(tagH2).parentNode.nodeName

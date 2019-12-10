@@ -19,6 +19,11 @@ $RestApi->put("/api/billetera/?",function($id,$data){
 });
 
 
+$RestApi->get("/api/filterbilletera",function($params){
+    $idPersona = $params->getParam("idPersona");
+    return BCnt::filterbilletera($idPersona);
+});
+
 //
 //$RestApi->get("/api/Purchasing",function(){
 //    return PCnt::all();
@@ -28,12 +33,7 @@ $RestApi->put("/api/billetera/?",function($id,$data){
 //    AuthController::validateAdmin();
 //    return PCnt::delete($id);
 //});
-////http://localhost/api/filterCompra?persona=4&nro_compra=2
-//$RestApi->get("/api/filterCompra",function($params){
-//    $persona = $params->getParam("persona");
-//    $nro_compra = $params->getParam("nro_compra");
-//    return PCnt::filterCompra($persona,$nro_compra);
-//});
+
 //
 //
 //$RestApi->get("/api/filter2",function($params){
