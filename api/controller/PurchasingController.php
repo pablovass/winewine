@@ -55,5 +55,13 @@ class PurchasingController{
  public static function comprapersona($persona){   
     return Compras::where("idPersona = '$persona'");
 }
-
+public static function where_total_compra($nro_compra){   
+    return Compras::where_total_compra("nro_compra = '$nro_compra'");
+}
+public static function where_distinct_nombre($nro_compra){   
+    return Compras::where_distinct_nombre("nro_compra = '$nro_compra'");
+}
+public static function todos_los_totales($idPersona){   
+    return Compras::todos_los_totales("idPersona='$idPersona'");
+}
 }

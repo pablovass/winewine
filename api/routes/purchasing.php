@@ -37,3 +37,17 @@ $RestApi->get("/api/comprapersona",function($params){
     $persona = $params->getParam("persona");
     return PCnt::comprapersona($persona);
 });
+
+$RestApi->get("/api/where_total_compra",function($params){
+    $nro_compra = $params->getParam("nro_compra");
+    return PCnt::where_total_compra($nro_compra);
+});
+
+$RestApi->get("/api/nombres_diferentes_una_compra",function($params){
+    $nro_compra = $params->getParam("nro_compra");
+    return PCnt::where_distinct_nombre($nro_compra);
+});
+$RestApi->get("/api/todos_los_totales",function($params){
+    $idPersona = $params->getParam("idPersona");
+    return PCnt::todos_los_totales($idPersona);
+});

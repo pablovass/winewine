@@ -127,6 +127,16 @@ abstract class Model{
     return $result;
   }
     
+ static function first($where){
+  $result =
+    DbController::getOneResult(
+      "Select * from "
+      . self::tableName()
+      . " WHERE "
+      . $where);
+  return self::transformToEntity($result);
+}
+
   static function where($where){
     $result =
       DbController::getList(
@@ -136,18 +146,37 @@ abstract class Model{
         . $where);
     return $result;
   }
-   
-
-
-  
- static function first($where){
+  //suma de productos y pecio final de la compra
+  static function where_total_compra($where){
     $result =
-      DbController::getOneResult(
-        "Select * from "
+      DbController::getList(
+        "Select COUNT(idProducto) as Total_produtos, Sum(precio) as Precio_total from "
         . self::tableName()
         . " WHERE "
         . $where);
-    return self::transformToEntity($result);
+    return $result;
   }
-    
+  //de un producto me trae los nombres 
+  static function where_distinct_nombre($where){
+    $result =
+      DbController::getList(
+        "select DISTINCT nombre from "
+        . self::tableName()
+        . " WHERE "
+        . $where);
+    return $result;
+  }
+//
+
+  
+  static function todos_los_totales($where){
+    $result =
+      DbController::getList(
+        "Select COUNT(idProducto)as total_produtos,Sum(precio)as precio_total,fecha from "
+        . self::tableName()
+        . " WHERE "
+        . $where
+        . " GROUP BY nro_compra");
+    return $result;
+  }
 }

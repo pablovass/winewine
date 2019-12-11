@@ -14,11 +14,23 @@ class Compra{
     return this.i;
     }
     get nro_compra(){
+      
     return this.nrocompra;
     }
+    set nro_compra(value){
+        this.nrocompra=value;
+        }
     get  idPersona(){
-    return this.idpersona;
+    return this.idPersona;
     }
+    set idPersona(value){
+        this.idpersona=value;
+        }
+
+    set idProducto(value){
+        this.idproducto=value;
+        }
+
     get  idProducto(){
     return this.idproducto;
     }
@@ -35,15 +47,6 @@ class Compra{
     set id (value){
     this.i=value;
     }
-    set idPersona(value){
-    this.idpersona=value;
-    }
-    set nro_compra(value){
-    this.idproducto=value;
-    }
-    set idProducto(value){
-    this.idproducto=value;
-    }
     set nombre(value){
     this.name=value;
     }
@@ -55,45 +58,81 @@ class Compra{
     }
 }
 var compra =new Compra()
-
 function getCompra(){
-
-    function getPurchases(tipo,max){
-        let category=tipo
-        let cant=max 
-        
-         fetch(`/api/filterxpersona?idpersona=${localStorage.id}`)   
-              .then((res)=>res.json())
-              .then((data)=>{
-         
-                var compras=``;
-              
-                data.forEach(function(com) {
-                        compras += `
-                        <tr>
-                        <td>${com.nombre} </td>
-                        <td>1/9/2019</td>
-                        <td>$5.699,00 x 1 unidad</td>
-                        <td><button class="btn" data-toggle="modal" data-target="#myModal" onclick="window.location.href = '/pages/panel/detalleCompra.html';">ver detalle</button></td>
-                        </tr>
-
-                 
-                    `;
-                });
-                document.getElementById('getPurchases').innerHTML=compras;
-                      
-            })
-}
-getCompra()
-
-function removeFromFavorites(){
-
-}
-
-function removeFromShoppingCart(){
-s
-}
-
-function makeThePayment(){
+    // obtengo el numero de compras 
     
+    fetch(`/api/comprapersona?persona=${localStorage.id}`)   
+    .then((res)=>res.json())
+    .then((data)=>{
+       data.forEach(function(data) {
+       compra.id=data.id;
+       compra.idPersona=data.idPersona;
+       compra.idProducto=data.idProducto;
+       compra.nombre=data.nombre;
+       compra.precio=data.precio;
+       compra.nro_compra=data.nro_compra;
+       compra.fecha=data.fecha
+       localStorage.setItem('nro_compra',compra.nro_compra)
+      // console.log(compra)
+       
+       return compra
+       
+      });
+  })
+  
 }
+
+
+
+function getDifferentNamesAPurchase(){
+    
+    fetch(`/api/nombres_diferentes_una_compra?nro_compra=${localStorage.nro_compra}`)   
+    .then((res)=>res.json())
+    .then((data)=>{
+        var c;
+        data.forEach(function(d) {
+        c=d.nombre;
+        console.log(c)
+      });
+  })
+}
+
+   
+function getPrecioCantTotalCompra(){
+ var url=`/api/todos_los_totales?idPersona=${localStorage.id}`
+   
+fetch(url)   
+        .then((res)=>res.json())
+        .then((data)=>{
+            console.log(data)
+            data.forEach(function(data) {
+                
+                var v1=data.total_produtos
+                var v2=data.precio_total
+        
+                const totalcompra = {
+                    preciototal :v1 ,
+                    cantproductosTotal :v2 
+                  }
+                  console.log(totalcompra);
+                });
+            })
+          }
+        
+    
+    getCompra()
+
+    getDifferentNamesAPurchase()
+    getPrecioCantTotalCompra()
+
+    //function removeFromFavorites(){
+//
+//}
+//
+//function removeFromShoppingCart(){
+//
+//}
+//
+//function makeThePayment(){
+//    
+//}
