@@ -52,8 +52,8 @@ class PurchasingController{
      return Compras::where("idPersona = '$idPersona' and  nro_compra='$nro_compra'");
  }
 
- public static function filterxpersona($idPersona){   
-    return Compras::where("idPersona = '$idPersona'");
+ public static function comprapersona($persona){   
+    return Compras::where("idPersona = '$persona'");
 }
 
 }
