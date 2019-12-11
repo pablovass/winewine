@@ -43,11 +43,15 @@ $RestApi->get("/api/where_total_compra",function($params){
     return PCnt::where_total_compra($nro_compra);
 });
 
-$RestApi->get("/api/nombres_diferentes_una_compra",function($params){
-    $nro_compra = $params->getParam("nro_compra");
-    return PCnt::where_distinct_nombre($nro_compra);
+$RestApi->get("/api/where_distinct_nombre",function($params){
+    $idPersona = $params->getParam("idPersona");
+    return PCnt::where_distinct_nombre($idPersona);
 });
 $RestApi->get("/api/todos_los_totales",function($params){
     $idPersona = $params->getParam("idPersona");
     return PCnt::todos_los_totales($idPersona);
+});
+$RestApi->get("/api/muestra_compra",function($params){
+    $idPersona = $params->getParam("idPersona");
+    return PCnt::muestra_compra($idPersona);
 });

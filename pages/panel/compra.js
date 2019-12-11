@@ -83,47 +83,34 @@ function getCompra(){
 }
 
 
-
-function getDifferentNamesAPurchase(){
-    
-    fetch(`/api/nombres_diferentes_una_compra?nro_compra=${localStorage.nro_compra}`)   
+function getTodosLosTotales(){
+    fetch(`/api/todos_los_totales?idPersona=${localStorage.id}`)   
     .then((res)=>res.json())
     .then((data)=>{
-        var c;
-        data.forEach(function(d) {
-        c=d.nombre;
-        console.log(c)
+        var compra=``;
+    
+      data.forEach(function(dato) {
+        compra+=
+        `<tr>
+        <td>${dato.nombre} ...</td>
+        <td>${dato.fecha}</td>
+        <td>$ ${dato.precio_total} x ${dato.total_produtos} unidad</td>
+        <td><button class="btn" data-toggle="modal" data-target="#myModal" onclick="window.location.href = '/pages/panel/detalleCompra.html';">ver detalle</button></td>
+        </tr>`;
       });
+      document.getElementById('getcompras').innerHTML=compra;
+            
   })
+
 }
 
    
-function getPrecioCantTotalCompra(){
- var url=`/api/todos_los_totales?idPersona=${localStorage.id}`
-   
-fetch(url)   
-        .then((res)=>res.json())
-        .then((data)=>{
-            console.log(data)
-            data.forEach(function(data) {
-                
-                var v1=data.total_produtos
-                var v2=data.precio_total
-        
-                const totalcompra = {
-                    preciototal :v1 ,
-                    cantproductosTotal :v2 
-                  }
-                  console.log(totalcompra);
-                });
-            })
-          }
-        
+ RestApi.get()   
     
     getCompra()
 
-    getDifferentNamesAPurchase()
-    getPrecioCantTotalCompra()
+    //getNamesProductos()
+    getTodosLosTotales()
 
     //function removeFromFavorites(){
 //
@@ -136,3 +123,37 @@ fetch(url)
 //function makeThePayment(){
 //    
 //}
+
+//<tbody >
+
+
+function createRow(product){
+
+   // const tr = document.createElement("tr")
+    const td1 = document.createElement("td")
+    td1.innerText = product.nombre
+    document.getElementById('getnombres').appendChild(td1)
+
+
+    const td2 = document.createElement("td")
+    const td3 = document.createElement("td")
+    const td4 = document.createElement("td")
+
+    const addToCartButton = document.createElement("button")
+    addToCartButton.innerText = "Agregar al carrito"
+    addToCartButton.addEventListener("click",function(){
+        addToCart(product)
+    })
+    tagDiv.className="container-fluid"
+
+    
+    td2.innerText = product.precio
+    td3.appendChild(addToCartButton)
+
+    
+    tr.appendChild(td2)
+    tr.appendChild(td3)
+    tr.appendChild(td4)
+    return tr
+}
+//<td><button class="btn" data-toggle="modal" data-target="#myModal" onclick="window.location.href = '/pages/panel/detalleCompra.html';">ver detalle</button></td>

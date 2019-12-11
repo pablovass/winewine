@@ -40,12 +40,7 @@ public static function delete($id){
  return "Ok";
 
 }
-//public static function update($id,$dinero){  
-//  $user = Usuarios::byId($id);
-//  $user->dinero = $dinero;
-//  $user->update();
-//  return "OK";
-//}
+
 static function update($id,$dinero){
   return Usuarios::where("id = '$id' and dinero ='$dinero' ");
 

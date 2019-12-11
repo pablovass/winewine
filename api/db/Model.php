@@ -156,23 +156,35 @@ abstract class Model{
         . $where);
     return $result;
   }
-  //de un producto me trae los nombres 
+  //de una persona me trae los nombres por nro de compra 
   static function where_distinct_nombre($where){
     $result =
       DbController::getList(
-        "select DISTINCT nombre from "
+        "select DISTINCT nombre,nro_compra from  "
         . self::tableName()
         . " WHERE "
-        . $where);
+        . $where
+        . " ORDER BY nro_compra");
     return $result;
   }
-//
+
 
   
   static function todos_los_totales($where){
     $result =
       DbController::getList(
-        "Select COUNT(idProducto)as total_produtos,Sum(precio)as precio_total,fecha from "
+        "Select COUNT(idProducto)as total_produtos,Sum(precio)as precio_total,fecha,nombre from "
+        . self::tableName()
+        . " WHERE "
+        . $where
+        . " GROUP BY nro_compra");
+    return $result;
+  }
+  //una muestra de cada producto
+  static function muestra_compra($where){
+    $result =
+      DbController::getList(
+        "Select DISTINCT nombre,nro_compra from "
         . self::tableName()
         . " WHERE "
         . $where
