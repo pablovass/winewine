@@ -1,7 +1,7 @@
 //URLParams.id
 //URLParams.tipo
 
-
+var product =new Producto();
 function getProductDetail(id,tipo){
    let elId=id
    let elTipo=tipo
@@ -12,7 +12,13 @@ function getProductDetail(id,tipo){
               var producto=``;
             
               data.forEach(function(prod) {
-                      producto += `
+               product.id=prod.id;
+               product.nombre=prod.nombre;
+               product.precio=prod.precio;
+               product.tipo=prod.tipo;
+               product.descripcion=prod.descripcion;
+
+         producto += `
                       <div class="row content" >
                         <div class="col-sm-8 text-left"> 
                         <br>
@@ -31,9 +37,9 @@ function getProductDetail(id,tipo){
                     <h3>${prod.cant_producto} unidades disponibles</h3>
   
               <div class="well">
-                      <button type="button" class="btn btn-primary">Comprar</button>
+                      <button  type="button" class="btn btn-primary"onclick="window.location.href = '../panel/carrito.html';">Comprar</button>
                       <br><br>
-                      <button type="button" class="btn btn-primary active">Carrito</button>
+                      <button id="carrito" type="button" class="btn btn-primary active" onclick="window.location.href = '../panel/carrito.html';">Carrito</button>
               </div>
           
             
@@ -42,9 +48,10 @@ function getProductDetail(id,tipo){
   
                   `;
               });
+              
               document.getElementById('getProductDetail').innerHTML=producto;
-                    
+              return (product)      
           })
           
        }
-  
+

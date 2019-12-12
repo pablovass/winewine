@@ -11,7 +11,6 @@ class UserController{
     $user->usuario = $usuario;
     $user->pass = $pass;
     $user->email = $email;
-    
     $user->apellido= $apellido;
     $user->nombre= $nombre;
     $user->role = 0;

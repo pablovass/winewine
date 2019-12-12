@@ -1,14 +1,51 @@
 //NO LO ESTOY USANDO 2019 
 
 class Producto{
-    constructor(id,nombre,descripcion,precio,cant_producto,tipo){
+    constructor(id,nombre,descripcion,precio,tipo){
         this.id=id;
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.precio=precio;
-        this.cant_producto=cant_producto;
         this.tipo=tipo;
     }
+    get id(){
+      return this.i;
+      }
+      get  nombre(){
+      return this.name;
+      }
+      get  descripcion(){
+      return this.description;
+      }
+      get  precio(){
+       return this.price;
+      }
+      get  tipo(){
+        return this.type;
+       }
+      set id (value){
+       this.i=value;
+      }
+      
+      set nombre(value){
+       this.name=value;
+      }
+      set descripcion(value){
+       this.description=value;
+      }
+      set precio(value){
+       this.price=value;
+      }
+      set tipo(value){
+       this.type=value;
+      }
+      }
+      
+      
+      function getUser(){
+        
+         let username=(localStorage.user);
+         RestApi.get(`http://localhost/api/filteruser?usuario=${username}`)   
 
 }
 //GET

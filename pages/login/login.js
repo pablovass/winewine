@@ -5,6 +5,7 @@ const passTag = document.getElementById("password")
   document
   .getElementById("login")
   .addEventListener("click",()=>{
+    
     const usuario = {
       username : userTag.value,
       password : passTag.value
