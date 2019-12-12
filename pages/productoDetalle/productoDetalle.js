@@ -2,6 +2,7 @@
 //URLParams.tipo
 
 var product =new Producto();
+
 function getProductDetail(id,tipo){
    let elId=id
    let elTipo=tipo
@@ -39,7 +40,7 @@ function getProductDetail(id,tipo){
               <div class="well">
                       <button  type="button" class="btn btn-primary"onclick="window.location.href = '../panel/carrito.html';">Comprar</button>
                       <br><br>
-                      <button id="carrito" type="button" class="btn btn-primary active" onclick="window.location.href = '../panel/carrito.html';">Carrito</button>
+                      <button id="carrito" type="button" class="btn btn-primary active" onclick="window.location.href = '../carrito/confirmacionCarrito.html?id=${prod.id}&tipo=${prod.tipo}';">Carrito</button>
               </div>
           
             
