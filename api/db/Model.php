@@ -173,7 +173,7 @@ abstract class Model{
   static function todos_los_totales($where){
     $result =
       DbController::getList(
-        "Select COUNT(idProducto)as total_produtos,Sum(precio)as precio_total,fecha,nombre from "
+        "Select COUNT(idProducto)as total_produtos,Sum(precio)as precio_total,fecha,nombre,nro_compra from "
         . self::tableName()
         . " WHERE "
         . $where
@@ -191,4 +191,15 @@ abstract class Model{
         . " GROUP BY nro_compra");
     return $result;
   }
+  //cantidad de compras 
+  static function ncompras($where){
+    $result =
+      DbController::getList(
+        "Select COUNT(DISTINCT(nro_compra)) as cant_compras from "
+        . self::tableName()
+        . " WHERE "
+        . $where);
+    return $result;
+  }
+
 }

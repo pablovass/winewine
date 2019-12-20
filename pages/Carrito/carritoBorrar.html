@@ -13,9 +13,9 @@
 ​
 <div class="container">
         
-  <h2 class="text-center">Desea agregar a su carrito de compra</h2>
-  <button id="cart" class="btn btn-primary btn-lg btn-block">Si</button>
-  <button id="getNO" type="button" class="btn btn-default btn-lg btn-block">No</button>
+  <h2 class="text-center">Desea quitarlo de su carrito? </h2>
+  <button id="borrar" class="btn btn-primary btn-lg btn-block">Si</button>
+  <button type="button" class="btn btn-default btn-lg btn-block">No</button>
 ​
  
 </div>
@@ -28,17 +28,21 @@ border-color: #333;
 </style>
 <script src="/js/RestApi.js"></script>
 
-<script src="productoDetalle.js"></script>
-<script src="carritoCarga.js"></script>
-<script>window.onload=getProductDetail()</script>
-
 <script>
-  $("#getNO").on("click",()=>{
-          alert("Usted Anulo la operacion \n No se guardara nada en el carrito")
-           window.location.href = "http://localhost/pages/carrito/carrito.html"
-          })
-      
-  </script>
+//borrar 
+$("#borrar").on("click",()=>{
+    const credentials =  URLParams.id
+RestApi.del(`/api/carrito/${credentials}`)
+       .then((carritoInfo)=>{
+            window.location.href = "http://localhost/pages/carrito/carrito.html"
+        })
+        .catch((err)=>{
+        alert("Error al cargar carrito")
+        console.error(err)
+  })
+  })
+</script>
+
 </body>
 </html>
 

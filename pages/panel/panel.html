@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="es">
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
 <head id="getHead">
+    <meta charset="utf-8">
 <title>panel</title>
-  <script src="/inc/head.js"></script>
+  
 </head>
 <body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
-<br><br>
+
 <header id="getHeader2"></header>
-    
-    
    
    <!-- principal--> 
     <nav class="navbar navbar-inverse visible-xs">
@@ -32,46 +35,44 @@
       </div>
     </nav>
     
-    <div class="container-fluid">
+    <div class="container-fluid  text-center">
       <div class="row content">
-        
-        <div  class="col-sm-3 sidenav hidden-xs">
-            <div id="sayHi"></div>
-        <!-------------------------->
-          <ul  class="nav nav-pills nav-stacked">
-           <!--<li class="active"><a href="#section1">Tu Panel de Usuario</a></li>  --> 
-            <li><a href="#section1">Seguir comprando</a></li>
-            <li><a href="#section2">Serrar Session</a></li>
-            <li><a href="#section3">Editar</a></li>
-          </ul><br>
-        </div>
+          <br><br><br><br>
+          <div class="col-sm-2 well" >
+              <div class="well">
+                <p><a href="#"><div id="sayHi"></div></a></p>
+                <img src="/images/login/avatar.png" class="img-circle" height="65" width="65" alt="Avatar">
+              </div>
+              <div class="well">
+                <p><a href="http://localhost/pages/carrito/carrito.html">Seguir Comprando</a></p>
+                <p><a href="/logout.html">Serrar Session</a></p>
+              <!--<p><a href="#">Editar Perfil</a></p>-->  
+                
+
+              </div>
+              <div id=getAdmin></div>
+            </div>
+            
         <br>
-    <!-- fin del principal -->    
+    <!-- comienza la otras secciones  -->    
         <div class="col-sm-9">
           <div class="well">
             <h4>Mi carrito</h4>
-            <p>Tienes 0 productos cargadado pendientes para comprar</p>
-            <button class=".btn-xs btn btn-primary" data-toggle="modal" data-target="#myModal">ver mi carrito</button>
+            <div id="getCantCarrito"></div>
+            <button class=".btn-xs btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="window.location.href = '../carrito/carrito.html';" >ver mi carrito</button>
           </div>
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-12">
               <div class="well">
                 <h4>Credito</h4>
                 
                 <p><div id="getShowMoney"></div></p>
+                  <div id="getCredito"></div>
                   
-                  <button class=".btn-xs btn btn-primary" data-toggle="modal" data-target="#myModal" onclick="window.location.href = '/pages/panel/cargaCredito.html';">Cargar mas</button>
-             
               </div>
             </div>
            
-            <div class="col-sm-6">
-              <div class="well">
-                <h4>consutas</h4>
-                <p>1 consulta</p> 
-                <button class=".btn-xs btn btn-primary" data-toggle="modal" data-target="#myModal">hacer consutas</button>
-              </div>
-            </div>
+            
             
           </div>
           <div class="row">
@@ -101,7 +102,7 @@
             
             <div class="col-sm-12">
               <div class="well">
-                <p>mensajes</p> 
+                <img src="/images/propaganda.jpg" alt=""height="150" width="800" > 
               </div>
             </div>
           </div>
@@ -123,12 +124,15 @@
  <script src="/js/RestApi.js"></script>
 <script src="/pages/producto/producto.js"></script>
 <script src="/js/util.js"></script>
+<script src="/inc/head.js"></script>
 <script src="/inc/header2.js"></script>
 
 <script src="usuario.js"></script>
 <script src="panel.js"></script>
-<script src="compra.js"></script>
 
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+<script src="detalle_compra_panel.js"></script>
+<script src="admin.js"></script>
 </body>
 </html>

@@ -30,7 +30,21 @@ public static function create($idPersona,$idProducto,$nombre,$precio,$fecha){
     $c->create();
     return "OK";
  }
-   
+public static function carritoxpersona($persona){   
+   return Carrito::where("idPersona = '$persona'");
+}
+public static function where_total_compra($idPersona){   
+   return Carrito::where_total_compra("idPersona = '$idPersona'");
+}
+///////////////////
+
+  //public static function delete_carrito($idProducto){   
+  // $c->idProducto=$idProducto;   
+  // //$purch =  Carrito::byId($id);
+  // $c->delete();
+  // return "Ok";
+  //}
+//
 // public static function update($id,$nro_compra,$idPersona,$idProducto,$nombre,$precio,$fecha){  
 //    $p = Carrito::byId($id);
 //    $p->id=$id;
@@ -44,15 +58,9 @@ public static function create($idPersona,$idProducto,$nombre,$precio,$fecha){
 //    $p->update();
 //    return "OK";
 //   }
-//public static function filtercompra($idPersona,$nro_compra){   
-//    return Carrito::where("idPersona = '$idPersona' and  nro_compra='$nro_compra'");
-//}
-//ublic static function comprapersona($persona){   
-//   return Carrito::where("idPersona = '$persona'");
-//
-//ublic static function where_total_compra($nro_compra){   
-//   return Carrito::where_total_compra("nro_compra = '$nro_compra'");
-//
+
+
+
 //ublic static function where_distinct_nombre($idPersona){   
 //   return Carrito::where_distinct_nombre("idPersona = '$idPersona'");
 //

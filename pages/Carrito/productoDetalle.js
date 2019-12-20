@@ -1,28 +1,21 @@
+//crea el producto para despues cargarlo al carrito 
+var product;
 
-var tipo = parseInt(URLParams.tipo)
-var id=parseInt(URLParams.id)      
-
-
-function getProductDetail(i,t){
-   let ii=i
-   let tt=t
-   RestApi.get(`/api/filter2?id=${ii}&tipo=${tt}`)   
-            //.then((res)=>res.json())
-            .then((data)=>{
-               console.log(data)
-             var  product=
-            {
-               id:data.id,
-               nombre:data.nombre,
-               precio:data.precio,
-               tipo:data.tipo
-            }       
-               
-              
-              return (product)      
-          })
-          
+function getProductDetail(){
+   
+   fetch(`/api/filter2?id=${URLParams.id}&tipo=${URLParams.tipo}`)   
+        .then((res)=>res.json())
+        .then((data)=>{
+            data.forEach(function(dato) {
+               product=
+               {
+                  id:dato.id,
+                  nombre:dato.nombre,
+                  precio:dato.precio,
+                  tipo:dato.tipo
+               }       
+                 });
+                 return (product)       
+             })
        }
 
- 
- window.onload=getProductDetail(tipo,id)

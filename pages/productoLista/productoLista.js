@@ -11,7 +11,7 @@ function getHeaderList(category){
            <div id="getList" class="row text-center"></div>
             <div class="btn-group btn-group-justified" role="group" aria-label="...">
               <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default" onclick="window.location.href = 'pages/productoLista/productoLista.html?category=${tipo}&max=5';">ver mas </button>
+              <button type="button" class="btn btn-default" onclick="window.location.href = '/pages/productoLista/productoLista.html?category=${tipo}&max=5';">ver mas </button>
               </div>
             </div>
       </div>
@@ -39,7 +39,7 @@ function getHeaderList(category){
                   <a href="http://localhost/pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}"><img src="/images/${prod.id}.jpg" alt="${prod.nombre}" /></a>
                     <p><strong>${prod.nombre}</strong></p>
                     <p>${prod.precio}</p>
-                    <button class="btn" data-toggle="modal" data-target="#myModal" onclick="window.location.href = 'pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}';">Buy Tickets</button>
+                    <button class="btn" data-toggle="modal" data-target="#myModal" onclick="window.location.href = '/pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}';">Buy Tickets</button>
                   </div>
                 </div>
   

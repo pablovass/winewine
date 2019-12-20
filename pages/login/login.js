@@ -12,7 +12,7 @@ const passTag = document.getElementById("password")
     }
     RestApi.post("/api/login",usuario)
       .then((userInfo)=>{
-        sessionStorage.usuario = JSON.stringify(userInfo)
+        sessionStorage.setItem("role",userInfo.msg);
         localStorage.setItem('user',usuario.username)
        
         

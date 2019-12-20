@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>confirmacion carrito</title>
+  <title>confirmacion compra</title>
 
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,9 +13,11 @@
 ​
 <div class="container">
         
-  <h2 class="text-center">Desea agregar a su carrito de compra</h2>
-  <button id="cart" class="btn btn-primary btn-lg btn-block">Si</button>
-  <button id="getNO" type="button" class="btn btn-default btn-lg btn-block">No</button>
+  <h2 class="text-center">Ya estamos a punto de  genera tu compra</h2>
+  <h3>estas a punto de gastar el credito que tenes disponible</h3>
+<h4>para realizar la compra pon en aceptar y no estaremos poniendo en contacto para enviarte los productos</h4>
+  <button id="cart"  class="btn btn-primary btn-lg btn-block" onclick="getVenta()" >ACEPTAR</button>
+  <button id="getNO" type="button" class="btn btn-default btn-lg btn-block">RECHAZAR</button>
 ​
  
 </div>
@@ -27,18 +29,17 @@ border-color: #333;
 }
 </style>
 <script src="/js/RestApi.js"></script>
-
-<script src="productoDetalle.js"></script>
 <script src="carritoCarga.js"></script>
-<script>window.onload=getProductDetail()</script>
-
+<script src="productoDetalle.js"></script>
+<script src="compraConfirmacion.js"></script>
 <script>
   $("#getNO").on("click",()=>{
-          alert("Usted Anulo la operacion \n No se guardara nada en el carrito")
+          alert("Usted Anulo la operacion \n dicha compra se  guardara en el carrito")
            window.location.href = "http://localhost/pages/carrito/carrito.html"
           })
       
   </script>
+
 </body>
 </html>
 

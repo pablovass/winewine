@@ -46,7 +46,3 @@ $RestApi->put("/api/user/?",function($params){
   return PrCnt::update($id,$dinero);
 });
 
-//$RestApi->put("/api/product/?",function($id,$data){
-    //AuthController::validateAdmin();
-  //  return PrCnt::update($id,$data->name,$data->price);
-//});

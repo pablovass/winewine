@@ -21,10 +21,8 @@ class PurchasingController{
         $purch->delete();
         return "Ok";
     }
-    
- public static function create($id,$nro_compra,$idPersona,$idProducto,$nombre,$precio,$fecha){  
+ public static function create($nro_compra,$idPersona,$idProducto,$nombre,$precio,$fecha){  
      $p = new Compras();
-     $p->id=$id;
      $p->nro_compra=$nro_compra;
      $p->idPersona=$idPersona;
      $p->idProducto=$idProducto;
@@ -66,4 +64,9 @@ public static function todos_los_totales($idPersona){
 public static function muestra_compra($idPersona){   
     return Compras::muestra_compra("idPersona='$idPersona'");
 }
+public static function ncompras($idPersona){   
+    return Compras::ncompras("idPersona='$idPersona'");
+}
+
+
 }

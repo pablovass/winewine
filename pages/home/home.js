@@ -89,7 +89,7 @@ function getListOne(tipo,max){
             data.forEach(function(prod) {
                     productos += `
                     <div class="col-sm-4">
-                    <p class="text-center"><strong>${prod.nombre}</strong></p><br>
+                    <p class="text-center"><strong>${prod.nombre} <p><b> $ ${prod.precio}</b></p></strong></p><br>
                     <a href="#demo" data-toggle="collapse">
                     <a href="http://localhost/pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}">  <img src="/images/${prod.id}.jpg" class="img-circle person" alt="${prod.nombre}" width="255" height="255"></a>
                     </a>
@@ -152,7 +152,7 @@ function getListTwo(tipo,max){
                 <div class="thumbnail">
                 <a href="http://localhost/pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}"><img src="images/${prod.id}.jpg" alt="${prod.nombre}" /></a>
                   <p><strong>${prod.nombre}</strong></p>
-                  <p>${prod.precio}</p>
+                  <p> <b> $ ${prod.precio}</b></p>
                   <button class="btn" data-toggle="modal" data-target="#myModal" onclick="window.location.href = 'pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}';">Comprar</button>
                 </div>
               </div>
@@ -214,7 +214,7 @@ function getListThree(tipo,max){
             data.forEach(function(prod) {
                     productos += `
                     <div class="col-sm-4">
-                        <p class="text-center"><strong>${prod.nombre}</strong></p><br>
+                        <p class="text-center"><strong>${prod.nombre}</strong></p> <p><b> $ ${prod.precio}</b></p><br>
                         <a href="#demo" data-toggle="collapse">
                         <a href="http://localhost/pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}"><img src="images/${prod.id}.jpg" class="img-circle person" alt="Random Name" width="255" height="255"></a>
                          </a>

@@ -28,20 +28,3 @@ $RestApi->delete("/api/billetera/?",function($id){
     //AuthController::validateAdmin();
     return BrCnt::delete($id);
 });
-//
-//$RestApi->get("/api/Purchasing",function(){
-//    return PCnt::all();
-//});
-//
-//$RestApi->delete("/api/Purchasing/?",function($id){
-//    AuthController::validateAdmin();
-//    return PCnt::delete($id);
-//});
-
-//
-//
-//$RestApi->get("/api/filter2",function($params){
-//    $id = $params->getParam("id");
-//    $tipo = $params->getParam("tipo");
-//    return PCnt::filter2($id,$tipo);
-//});

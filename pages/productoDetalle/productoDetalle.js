@@ -1,5 +1,3 @@
-//URLParams.id
-//URLParams.tipo
 
 var product =new Producto();
 
@@ -36,23 +34,51 @@ function getProductDetail(id,tipo){
                     <h2>${prod.nombre}</h2>
                     <h2>$ ${prod.precio}</h2>
                     <h3>${prod.cant_producto} unidades disponibles</h3>
-  
-              <div class="well">
-                      <button  type="button" class="btn btn-primary"onclick="window.location.href = '../panel/carrito.html';">Comprar</button>
-                      <br><br>
-                      <button id="carrito" type="button" class="btn btn-primary active" onclick="window.location.href = '../carrito/confirmacionCarrito.html?id=${prod.id}&tipo=${prod.tipo}';">Carrito</button>
-              </div>
-          
-            
-            </div>
-    </div>
+                    <div id="getButton"></div>
+             
   
                   `;
+                  
               });
-              
+             
               document.getElementById('getProductDetail').innerHTML=producto;
+              if(localStorage.user != null){
+                getButtonLogin()
+              }else{
+              getButton()
+              }
               return (product)      
           })
           
        }
+////////
+function getButtonLogin(){
+  var button=`
+  <div class="well">
+  <button  type="button" class="btn btn-primary" onclick="window.location.href ='/pages/carrito/confirmacionCarrito.html?id=${URLParams.id}&tipo=${URLParams.tipo}';">Comprar</button>
+  <br><br>
+  <button id="carrito" type="button" class="btn btn-primary active" onclick="window.location.href ='/pages/carrito/confirmacionCarrito.html?id=${URLParams.id}&tipo=${URLParams.tipo}';">Carrito</button>
+</div>
+
+
+</div>
+</div>
+  ` ;
+  document.getElementById('getButton').innerHTML=button;
+}
+
+function getButton(){
+  var button=`
+  <div class="well">
+  <button  type="button" class="btn btn-primary" onclick="window.location.href = 'http://localhost/pages/login/login.html';">Comprar</button>
+  <br><br>
+  <button id="carrito" type="button" class="btn btn-primary active" onclick="window.location.href = 'http://localhost/pages/login/login.html';">Carrito</button>
+</div>
+
+
+</div>
+</div>
+  ` ;
+  document.getElementById('getButton').innerHTML=button;
+}
 

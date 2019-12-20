@@ -1,0 +1,126 @@
+<!--No lo hice funcionar-->
+<!DOCTYPE html>
+<html lang="es">
+<head id="getHead">
+        <title>wine store</title>
+  <script src="/inc/head.js"></script>
+</head>
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<header id="getHeader">
+    
+</header>
+<br><br>
+<input type="file" id="file" />
+<button id="send">send</button>
+
+<script>
+
+function getBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = error => reject(error);
+  });
+}
+
+  $("#send").on("click",()=>{
+
+    const file = $("#file").files[0];
+    getBase64(file)
+      .then((b64) => {
+        const data = {
+          "data" : b64,
+          "name" : file.name
+        }
+        RestApi.post("/api/file",data)
+          .then((msg)=> console.log(msg))
+          .catch((err)=>console.error(err))
+      })
+
+
+  })
+
+
+</script>
+    
+ 
+    <!-- Footer -->
+  <footer id="getFooter" class="text-center">
+    <script src="/inc/footer.js"></script>
+  </footer>
+  </div>
+  <!--final del home-->  
+ 
+
+
+
+
+<script src="/js/RestApi.js"></script>
+<script src="/pages/producto/producto.js"></script>
+<script src="/js/util.js"></script>
+
+<script src="/inc/header.js"></script>
+
+
+</body>
+</html>
+
+<!------------------------------------------------------------------------------------------------------------------------->
+
+<div id="contact" class="container">
+        <h3 class="text-center">Contacto</h3>
+        <p class="text-center"><em>dejanos tus consultas!</em></p>
+      
+        <div class="row">
+          <div class="col-md-4">
+            <p>Fan? Drop a note.</p>
+            <p><span class="glyphicon glyphicon-map-marker"></span>Buenos Aires</p>
+            <p><span class="glyphicon glyphicon-phone"></span>Telefono: +54 1515151515</p>
+            <p><span class="glyphicon glyphicon-envelope"></span>Email: winewine@gmail.com</p>
+          </div>
+          <div class="col-md-8">
+            <div class="row">
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="name" name="name" placeholder="Nombre" type="text" required>
+              </div>
+              <div class="col-sm-6 form-group">
+                <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+              </div>
+            </div>
+            <textarea class="form-control" id="comments" name="comments" placeholder="Comentario" rows="5"></textarea>
+            <br>
+            <div class="row">
+              <div class="col-md-12 form-group">
+                <button class="btn pull-right" type="submit">Enviar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <br>
+        <h3 class="text-center">Nuestros Clientes</h3>  
+        <ul class="nav nav-tabs">
+          <li class="active"><a data-toggle="tab" href="#home">Mike</a></li>
+          <li><a data-toggle="tab" href="#menu1">Chandler</a></li>
+          <li><a data-toggle="tab" href="#menu2">Peter</a></li>
+        </ul>
+      
+        <div class="tab-content">
+          <div id="home" class="tab-pane fade in active">
+            <h2>Mike Ross, Manager del Four Season</h2>
+            <p>Siempre la mejor seleccion de vinos para mi bodega recondado al 100%.</p>
+          </div>
+          <div id="menu1" class="tab-pane fade">
+            <h2>Chandler Bing, Beer recoleta</h2>
+            <p>Siempre encuentro los mejores precios y una gran variedad de cervesas tanto importadas como nacionales</p>
+          </div>
+          <div id="menu2" class="tab-pane fade">
+            <h2>Peter Griffin, Restorando Puerto Madero</h2>
+            <p>I mean, sometimes I enjoy the show, but other times I enjoy other things.</p>
+          </div>
+        </div>
+      </div>
+      
+ 
+    

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>confirmacion carrito</title>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+​
+<div class="container">
+    <h2>producto: </h2>
+    <div id="getProducto"></div>
+    
+  <h2 class="text-center">Ingrese el precio actual</h2>
+      
+      <div class="form-group">
+        <label>Precio</label>
+        <input  class="form-control" id="precioid" placeholder="ingrese el precio">
+      </div>
+  ​
+    
+  <button id="aceptar" class="btn btn-primary btn-lg btn-block">Aceptar</button>
+  <button id="getNO" type="button" class="btn btn-default btn-lg btn-block">abortar la operacion</button>
+​
+ 
+</div>
+<style>
+.btn-primary {
+color: #fff;
+background-color: #333;
+border-color: #333;
+}
+</style>
+<script src="/js/RestApi.js"></script>
+
+<script src="productoDetalle.js"></script>
+<!--<script src="updateProducto.js"></script>-->
+<script>window.onload=getProductDetail()</script>
+
+<script>
+  $("#getNO").on("click",()=>{
+          alert("Usted Anulo la operacion \n No se guardara nada en el carrito")
+           window.location.href = "http://localhost/pages/carrito/carrito.html"
+          })
+      
+  </script>
+  <script>
+
+  const precioInput = document.getElementById("precioid")
+  document
+.getElementById("aceptar")
+.addEventListener("click",()=>{
+  var idP=parseInt(URLParams.id)
+  const precioNew ={precio: precioInput.value}  
+
+  RestApi.put(`/api/product/${idP}`,precioNew)
+               .then((dineroInfo)=>{
+                 console.log("precio update")
+               })
+    .catch((err)=>{
+      alert("Error al cambiar precio")
+      console.error(err)
+    })
+})
+
+ 
+  </script>
+</body>
+</html>
+

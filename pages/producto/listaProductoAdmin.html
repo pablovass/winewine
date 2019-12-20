@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head id="getHead">
-<title>wine store</title>
-<script src="/inc/head.js"></script>
+<title>administrar productos</title>
+
 </head>
 <body id="home" data-spy="scroll" data-target=".navbar" data-offset="50">
 <br><br>
@@ -20,12 +20,13 @@
             <img src="/images/login/avatar.png" class="img-circle" height="65" width="65" alt="Avatar">
           </div>
           <div class="well">
-            <p><a href="http://localhost/pages/productoLista/productoLista.html?category=1&max=5">Seguir Comprando</a></p>
-            <p><a href="/logout.html">Serrar Session</a></p>
+            <p><a id='vino' href="#">Vino</a></p>
+            <p><a id='cerveza' href="#">cerveza</a></p>
+            <p><a id='whiskey' href="#">whiskey</a></p>
             
           </div>
         </div>
-    <div class="col-sm-7" >
+    <div class="col-sm-9" >
         <div class="row">
             <div class="col-sm-12">
               <div class="panel panel-default text-left">
@@ -38,12 +39,7 @@
           </div>
           <div id="getCarrito"></div>
     </div>
-    <div class="col-sm-3 well">
-    <div id="getTotalCompra"></div>
-        <button compraDetalle onclick="window.location.href = '/pages/compra/compraConfirmacion.html';"   class="btn btn-dark">Comprar Todo</button>
-        <hr>
-        <button class="btn btn-dark" onclick="window.location.href = '/pages/productoLista/productoLista.html?category=1&max=5';">Seguir Viendo</button>
-      
+    
     </div>
   </div>
 </div>
@@ -51,15 +47,17 @@
         <script src="/inc/footer.js"></script>
       </footer>
      
-      <!--final del home-->  
+      <!--final del home-->
+      <script src="/inc/head.js"></script> 
+      <script src="/inc/header2.js"></script> 
      <script src="/js/RestApi.js"></script>
-    <script src="/pages/producto/producto.js"></script>
     <script src="/js/util.js"></script>
-    <script src="/inc/header2.js"></script>
+    
     
     <script src="usuario.js"></script>
-    <script src="carrito.js"></script>
+    <script src="listaProductoAdmin.js"></script>
    
+    <!--<script src="/pages/producto/producto.js"></script>-->
     
     
 

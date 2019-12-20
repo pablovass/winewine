@@ -8,9 +8,9 @@ $RestApi->get("/api/purchasing/?",function($id){
 
 });
 
-$RestApi->post("/api/purchasing",function($data){
-    AuthController::validateAdmin();
-    return PCnt::create($data->name,$data->price);
+$RestApi->post("/api/compra",function($data){
+   // AuthController::validateAdmin();
+    return PCnt::create($data->nro_compra,$data->idPersona,$data->idProducto,$data->nombre,$data->precio,$data->fecha);
 });
 
 $RestApi->put("/api/purchasing/?",function($id,$data){
@@ -54,4 +54,9 @@ $RestApi->get("/api/todos_los_totales",function($params){
 $RestApi->get("/api/muestra_compra",function($params){
     $idPersona = $params->getParam("idPersona");
     return PCnt::muestra_compra($idPersona);
+});
+
+$RestApi->get("/api/ncompras",function($params){
+    $idPersona = $params->getParam("idPersona");
+    return PCnt::ncompras($idPersona);
 });

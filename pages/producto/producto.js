@@ -1,16 +1,20 @@
 //NO LO ESTOY USANDO 2019 
 
 class Producto{
-    constructor(id,nombre,descripcion,precio,tipo){
+    constructor(id,nombre,descripcion,precio,tipo,cant){
         this.id=id;
         this.nombre=nombre;
         this.descripcion=descripcion;
         this.precio=precio;
         this.tipo=tipo;
+        this.cant=cant;
     }
     get id(){
       return this.i;
       }
+      get cant(){
+        return this.c;
+        }
       get  nombre(){
       return this.name;
       }
@@ -26,9 +30,11 @@ class Producto{
       set id (value){
        this.i=value;
       }
-      
       set nombre(value){
-       this.name=value;
+        this.name=value;
+       }
+      set cant(value){
+       this.c=value;
       }
       set descripcion(value){
        this.description=value;
@@ -78,7 +84,7 @@ function getManyproduct(tipo,max){
                       <p><strong>${prod.nombre}</strong></p>
                       <p><strong>$ ${prod.precio}</strong></p>
                     <!-- esta tachado  <p>${prod.descripcion}</p>-->
-                      <button class="btn" data-toggle="modal" data-target="#myModal">Buy Tickets</button>
+                      <button class="btn" data-toggle="modal" data-target="#myModal" onclick="window.location.href = 'pages/productoDetalle/productoDetalle.html?id=${prod.id}&tipo=${prod.tipo}';">Buy Tickets</button>
                     </div>
                   </div>
 
